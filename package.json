@@ -8,9 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:init": "tsx scripts/init-database.ts",
+    "db:reset": "rm -f data/catalog.db && npm run db:init"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.2.0",
     "clsx": "^2.1.1",
     "next": "15.4.7",
     "react": "19.1.0",
@@ -33,6 +37,7 @@
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4",
+    "tsx": "^4.20.4",
     "typescript": "^5"
   }
 }
