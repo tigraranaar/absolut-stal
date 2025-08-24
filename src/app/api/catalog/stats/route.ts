@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getCatalogStats } from '@/lib/database';
+import { getCatalogStatsFromJson } from '@/lib/catalog-data';
 
 export async function GET() {
   try {
-    const stats = getCatalogStats();
+    const stats = getCatalogStatsFromJson();
 
     return NextResponse.json({
       success: true,
