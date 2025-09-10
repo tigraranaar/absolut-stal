@@ -4,7 +4,17 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  isSticky?: boolean;
+  isTransparent?: boolean;
+  isScrolled?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  isSticky = false,
+  isTransparent = false,
+  isScrolled = false,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation = [
@@ -14,13 +24,35 @@ const Header: React.FC = () => {
     { name: 'Контакты', href: '/contacts' },
   ];
 
+  const getHeaderClasses = () => {
+    let classes = '';
+
+    if (isSticky) {
+      classes += ' header-sticky';
+    }
+
+    if (isTransparent) {
+      classes += ' header-transparent';
+      if (isScrolled) {
+        classes += ' scrolled';
+      }
+    } else {
+      classes += ' border-b border-gray-200 bg-white shadow-sm';
+    }
+
+    return classes;
+  };
+
   return (
-    <header className="border-b border-gray-200 bg-white shadow-sm">
+    <header className={getHeaderClasses()}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Логотип */}
           <div className="flex-shrink-0">
-            <Logo size="lg" />
+            <Logo
+              size="lg"
+              textColor={isTransparent && !isScrolled ? 'white' : 'dark'}
+            />
           </div>
 
           {/* Десктопная навигация */}
@@ -29,31 +61,49 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:text-yellow-600"
+                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-yellow-600 ${
+                  isTransparent && !isScrolled ? 'text-white' : 'text-gray-700'
+                }`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* Кнопки действий */}
-          <div className="hidden items-center space-x-4 md:flex">
-            <Link
-              href="/catalog"
-              className="rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
-            >
-              Каталог
-            </Link>
-            <button className="rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200">
-              Прайс-лист
+          {/* Кнопки действий и контакты */}
+          <div className="hidden items-center space-x-6 md:flex">
+            <button className="rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600">
+              Заказать звонок
             </button>
+            <div className="flex flex-col text-right">
+              <a
+                href="tel:+73412566822"
+                className={`text-sm font-medium transition-colors hover:text-yellow-600 ${
+                  isTransparent && !isScrolled ? 'text-white' : 'text-gray-700'
+                }`}
+              >
+                +73412566822
+              </a>
+              <a
+                href="mailto:abst18@bk.ru"
+                className={`text-xs transition-colors hover:text-yellow-600 ${
+                  isTransparent && !isScrolled
+                    ? 'text-gray-200'
+                    : 'text-gray-500'
+                }`}
+              >
+                abst18@bk.ru
+              </a>
+            </div>
           </div>
 
           {/* Мобильная кнопка меню */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-gray-700 hover:text-yellow-600"
+              className={`p-2 transition-colors hover:text-yellow-600 ${
+                isTransparent && !isScrolled ? 'text-white' : 'text-gray-700'
+              }`}
             >
               <svg
                 className="h-6 w-6"
@@ -96,16 +146,26 @@ const Header: React.FC = () => {
                 </Link>
               ))}
               <div className="space-y-2 pt-4">
-                <Link
-                  href="/catalog"
+                <button
                   className="block w-full rounded-md bg-yellow-500 px-4 py-2 text-center text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Каталог
-                </Link>
-                <button className="block w-full rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200">
-                  Прайс-лист
+                  Заказать звонок
                 </button>
+                <div className="space-y-1 rounded-md bg-gray-50 px-4 py-3">
+                  <a
+                    href="tel:+7(3412)123-456"
+                    className="block text-sm font-medium text-gray-700 hover:text-yellow-600"
+                  >
+                    +7 (3412) 123-456
+                  </a>
+                  <a
+                    href="mailto:info@absolutstal.ru"
+                    className="block text-xs text-gray-500 hover:text-yellow-600"
+                  >
+                    info@absolutstal.ru
+                  </a>
+                </div>
               </div>
             </div>
           </div>
