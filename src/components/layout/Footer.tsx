@@ -4,32 +4,20 @@ import Logo from '@/components/ui/Logo';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* О компании */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
-              <Logo size="lg" showText={false} />
-              <span className="text-lg font-bold ml-3">Абсолют Сталь</span>
-            </div>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Компания по металлопрокату в городе Ижевске. Широкий ассортимент, 
-              качественные материалы, резка и доставка по всей Удмуртской Республике 
-              и близлежащим регионам.
-            </p>
-            <div className="flex space-x-4">
-              <span className="text-yellow-500 font-medium">Телефон:</span>
-              <span className="text-gray-300">+7 (3412) XXX-XX-XX</span>
-            </div>
-          </div>
-
+    <footer className="text-white" style={{ backgroundColor: '#201F1F' }}>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Услуги */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-500">Услуги</h3>
+            <h3 className="mb-4 text-lg font-semibold text-yellow-500">
+              Услуги
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/catalog" className="text-gray-300 hover:text-white transition-colors">
+                <Link
+                  href="/catalog"
+                  className="text-gray-300 transition-colors hover:text-white"
+                >
                   Металлопрокат
                 </Link>
               </li>
@@ -47,7 +35,9 @@ const Footer: React.FC = () => {
 
           {/* Контакты */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-500">Контакты</h3>
+            <h3 className="mb-4 text-lg font-semibold text-yellow-500">
+              Контакты
+            </h3>
             <ul className="space-y-2 text-gray-300">
               <li>г. Ижевск</li>
               <li>ул. Примерная, 123</li>
@@ -56,21 +46,47 @@ const Footer: React.FC = () => {
               <li>Вс: Выходной</li>
             </ul>
           </div>
+
+          {/* О компании */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="mb-4 flex items-center">
+              <Logo size="lg" showText={false} />
+              <span className="ml-3 text-lg font-bold">Абсолют Сталь</span>
+            </div>
+            <p className="mb-4 max-w-md text-gray-300">
+              Компания по металлопрокату в городе Ижевске. Широкий ассортимент,
+              качественные материалы, резка и доставка по всей Удмуртской
+              Республике и близлежащим регионам.
+            </p>
+            <div className="flex space-x-4">
+              <span className="font-medium text-yellow-500">Телефон:</span>
+              <span className="text-gray-300">+7 (3412) XXX-XX-XX</span>
+            </div>
+          </div>
         </div>
 
         {/* Нижняя часть */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-8 flex flex-col items-center justify-between border-t border-gray-800 pt-8 md:flex-row">
+          <p className="text-sm text-gray-400">
             © 2024 Абсолют Сталь. Все права защищены.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">
+          <div className="mt-4 flex space-x-6 md:mt-0">
+            <Link
+              href="/about"
+              className="text-sm text-gray-400 transition-colors hover:text-white"
+            >
               О компании
             </Link>
-            <Link href="/delivery" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link
+              href="/delivery"
+              className="text-sm text-gray-400 transition-colors hover:text-white"
+            >
               Доставка
             </Link>
-            <Link href="/contacts" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link
+              href="/contacts"
+              className="text-sm text-gray-400 transition-colors hover:text-white"
+            >
               Контакты
             </Link>
           </div>
