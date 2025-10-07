@@ -157,7 +157,7 @@ const Header: React.FC<HeaderProps> = ({
                     href="tel:+7(3412)123-456"
                     className="block text-sm font-medium text-gray-700 hover:text-yellow-600"
                   >
-                    +7 (3412) 123-456
+                    +7 (3412) 566822
                   </a>
                   <a
                     href="mailto:info@absolutstal.ru"

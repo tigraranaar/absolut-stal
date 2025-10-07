@@ -304,7 +304,7 @@ export default function CatalogPage() {
       <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-6xl">
-            <span className="text-yellow-500">Каталог</span> товаров
+            Каталог товаров
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
             Широкий ассортимент металлопроката, нержавеющей стали и цветных

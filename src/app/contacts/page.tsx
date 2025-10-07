@@ -21,7 +21,7 @@ export default function ContactsPage() {
       address: '426035, УР, г. Ижевск, ул. Репина, дом 35, кор. 1',
       phone: '+7 3412 56-68-22',
       email: 'abst18@bk.ru',
-      workHours: 'пн-пт, 8:00-17:30 (время указано по МСК)',
+      workHours: 'пн-пт, 8:00-18:00 (МСК)',
     },
     {
       name: 'ООО «Абсолют Сталь+»',
@@ -41,7 +41,7 @@ export default function ContactsPage() {
       <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-6xl">
-            <span className="text-yellow-500">Контакты</span>
+            Контакты
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Свяжитесь с нами для заказа металлопроката. Наши специалисты готовы
@@ -67,7 +67,7 @@ export default function ContactsPage() {
             {salesTeam.map((member, index) => (
               <div
                 key={index}
-                className="rounded-xl bg-gray-50 p-2 text-center transition-all duration-300 hover:bg-yellow-50"
+                className="rounded-xl bg-gray-50 p-2 text-center transition-all duration-300"
               >
                 <h3 className="mb-2 text-lg font-semibold text-gray-900">
                   {member.name}
@@ -80,35 +80,6 @@ export default function ContactsPage() {
                 </a>
               </div>
             ))}
-          </div>
-
-          {/* Telegram бот */}
-          <div className="mt-12 text-center">
-            <div className="mx-auto max-w-md rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 p-8">
-              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white">
-                <svg
-                  className="h-10 w-10 text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-white">
-                Металл в Кармане
-              </h3>
-              <p className="mb-4 text-blue-100">
-                Сервис для быстрого поиска металла и создания срочных заявок
-              </p>
-              <a
-                href="https://t.me/izh_metall18_bot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-white px-6 py-3 font-medium text-blue-600 transition-colors hover:bg-gray-100"
-              >
-                Открыть бота
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -316,9 +287,8 @@ export default function ContactsPage() {
                 <iframe
                   src="https://yandex.ru/map-widget/v1/-/CBqZEVtL-A"
                   width="600"
-                  height="600"
-                  frameBorder="0"
-                  className="h-[500px] w-full"
+                  height="400"
+                  className="h-[400px] w-full"
                 ></iframe>
               </div>
             </div>
