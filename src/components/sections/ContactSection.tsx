@@ -146,68 +146,48 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Форма обратной связи */}
-          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h3 className="mb-6 text-2xl font-bold text-gray-900">
-              Оставить заявку
+          {/* Регионы работы */}
+          <div>
+            <h3 className="mb-8 text-2xl font-bold text-gray-900">
+              Регионы работы
             </h3>
+            <p className="mb-6 text-gray-600">
+              Мы обслуживаем клиентов в следующих регионах:
+            </p>
 
-            <form className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Ваше имя
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-500"
-                  placeholder="Введите ваше имя"
-                />
+            <div className="space-y-4">
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="mb-3 flex items-center">
+                  <div className="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
+                  <h4 className="font-semibold text-gray-900">Ижевск</h4>
+                </div>
+                <p className="text-sm text-gray-600">
+                  Столица Удмуртской Республики
+                </p>
               </div>
 
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Телефон
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-500"
-                  placeholder="+7 (XXX) XXX-XX-XX"
-                />
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="mb-3 flex items-center">
+                  <div className="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
+                  <h4 className="font-semibold text-gray-900">
+                    Удмуртская Республика
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-600">Весь регион</p>
               </div>
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Сообщение
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-transparent focus:ring-2 focus:ring-yellow-500"
-                  placeholder="Опишите, что вас интересует..."
-                />
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="mb-3 flex items-center">
+                  <div className="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
+                  <h4 className="font-semibold text-gray-900">
+                    Близлежащие регионы
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-600">
+                  Татарстан, Кировская область, Пермский край
+                </p>
               </div>
-
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-yellow-500 py-3 font-medium text-gray-900 transition-colors hover:bg-yellow-600"
-              >
-                Отправить заявку
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
