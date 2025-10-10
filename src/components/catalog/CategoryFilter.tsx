@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Subcategory {
   id: number;
@@ -32,6 +35,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   onSubcategoryChange,
   className = '',
 }) => {
+  const router = useRouter();
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
     new Set()
   );
@@ -42,20 +46,21 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       return;
     }
 
-    // Иначе выбираем новую категорию
-    onCategoryChange(categorySlug);
-    onSubcategoryChange(null);
-    setExpandedCategories((prev) => new Set([...prev, categorySlug]));
+    // Переходим на страницу категории
+    router.push(`/catalog/${categorySlug}`);
   };
 
-  const handleSubcategoryClick = (subcategorySlug: string) => {
+  const handleSubcategoryClick = (
+    categorySlug: string,
+    subcategorySlug: string
+  ) => {
     // Если субкатегория уже выбрана - ничего не делаем
     if (selectedSubcategory === subcategorySlug) {
       return;
     }
 
-    // Иначе выбираем новую субкатегорию
-    onSubcategoryChange(subcategorySlug);
+    // Переходим на страницу подкатегории
+    router.push(`/catalog/${categorySlug}/${subcategorySlug}`);
   };
 
   const toggleCategoryExpansion = (categorySlug: string) => {
@@ -146,12 +151,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       </h3>
 
       <div className="space-y-2">
-        {/* Кнопка "Все категории" - сбрасывает все фильтры */}
+        {/* Кнопка "Все категории" - переход на главную страницу каталога */}
         <button
-          onClick={() => {
-            onCategoryChange(null);
-            onSubcategoryChange(null);
-          }}
+          onClick={() => router.push('/catalog')}
           className={`flex w-full items-center rounded-lg border px-4 py-3 transition-all duration-200 ${
             selectedCategory === null && selectedSubcategory === null
               ? 'border-yellow-500 bg-yellow-50 text-yellow-700'
@@ -245,7 +247,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                   {category.subcategories.map((subcategory) => (
                     <button
                       key={subcategory.id}
-                      onClick={() => handleSubcategoryClick(subcategory.slug)}
+                      onClick={() =>
+                        handleSubcategoryClick(category.slug, subcategory.slug)
+                      }
                       className={`flex w-full items-center justify-between rounded-lg border px-3 py-2 text-sm transition-all duration-200 ${
                         selectedSubcategory === subcategory.slug
                           ? 'bg-yellow-25 border-yellow-400 text-yellow-600'

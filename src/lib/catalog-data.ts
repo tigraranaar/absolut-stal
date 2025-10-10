@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
+import slugify from 'slugify';
 
 // Интерфейсы для типизации
 interface Category {
@@ -35,11 +36,18 @@ interface JsonProduct {
   unit: string;
 }
 
-// ⚙️ Конфигурация категорий
-// Если добавляете новую категорию:
-// 1. Создайте папку в src/data/ (например: src/data/new-category/)
-// 2. Добавьте её сюда с названием и описанием
-// 3. Положите JSON файлы в папку - они подхватятся автоматически!
+// Функция создания slug из текста (транслитерация через библиотеку slugify)
+function createSlug(text: string): string {
+  return slugify(text, {
+    lower: true,
+    strict: true,
+    locale: 'ru',
+  });
+}
+
+// ⚙️ Конфигурация категорий (теперь с соответствием папок)
+// Ключ = название папки в src/data/
+// Значение = название и описание категории
 const CATEGORIES_CONFIG = {
   'metal-rolling': {
     name: 'Металлопрокат',
@@ -88,18 +96,32 @@ function loadCategoryData(categorySlug: string): JsonProduct[] {
 // Загружаем все данные динамически
 function loadAllData(): Record<
   string,
-  { name: string; description: string; products: JsonProduct[] }
+  {
+    name: string;
+    description: string;
+    products: JsonProduct[];
+    folderName: string;
+  }
 > {
   const allData: Record<
     string,
-    { name: string; description: string; products: JsonProduct[] }
+    {
+      name: string;
+      description: string;
+      products: JsonProduct[];
+      folderName: string;
+    }
   > = {};
 
-  Object.entries(CATEGORIES_CONFIG).forEach(([categorySlug, categoryInfo]) => {
+  Object.entries(CATEGORIES_CONFIG).forEach(([folderName, categoryInfo]) => {
+    // Генерируем slug из названия категории через транслитерацию
+    const categorySlug = createSlug(categoryInfo.name);
+
     allData[categorySlug] = {
       name: categoryInfo.name,
       description: categoryInfo.description,
-      products: loadCategoryData(categorySlug),
+      products: loadCategoryData(folderName), // Загружаем из папки с английским названием
+      folderName: folderName,
     };
   });
 
@@ -116,12 +138,8 @@ function transformJsonToProducts(): Product[] {
 
   Object.entries(allData).forEach(([categorySlug, categoryData]) => {
     categoryData.products.forEach((jsonProduct) => {
-      // Создаем slug для productGroup
-      const subcategorySlug = jsonProduct.productGroup
-        .toLowerCase()
-        .replace(/[^a-z0-9а-яё]/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '');
+      // Создаем slug для подкатегории через транслитерацию
+      const subcategorySlug = createSlug(jsonProduct.productGroup);
 
       allProducts.push({
         id: productIdCounter++,
@@ -158,11 +176,7 @@ export function getCategoriesFromJson(): Category[] {
     ).map(([name, count], subIndex) => ({
       id: subIndex + 1,
       name,
-      slug: name
-        .toLowerCase()
-        .replace(/[^a-z0-9а-яё]/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, ''),
+      slug: createSlug(name), // Используем транслитерацию
       product_count: count,
     }));
 

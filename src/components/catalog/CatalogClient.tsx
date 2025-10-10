@@ -36,15 +36,21 @@ interface Product {
 interface CatalogClientProps {
   initialCategories: Category[];
   initialProducts: Product[];
+  preselectedCategory?: string | null;
+  preselectedSubcategory?: string | null;
 }
 
 export default function CatalogClient({
   initialCategories,
   initialProducts,
+  preselectedCategory = null,
+  preselectedSubcategory = null,
 }: CatalogClientProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    preselectedCategory
+  );
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(
-    null
+    preselectedSubcategory
   );
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
