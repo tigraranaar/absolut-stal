@@ -37,9 +37,15 @@ const HeroSection: React.FC = () => {
                 Перейти в каталог
               </Button>
             </Link>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              Скачать прайс-лист
-            </Button>
+            <a href="/price-list.xlsx" download="Прайс-лист-Абсолют-Сталь.xlsx">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full border-white text-white hover:bg-white hover:text-gray-900 sm:w-auto"
+              >
+                Скачать прайс-лист
+              </Button>
+            </a>
           </div>
         </div>
       </div>
