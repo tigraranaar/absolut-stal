@@ -263,7 +263,7 @@ export default function DeliveryPage() {
                 key={index}
                 className="group rounded-2xl bg-gray-50 p-8 text-center"
               >
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
                   {vehicle.icon}
                 </div>
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">
@@ -287,7 +287,7 @@ export default function DeliveryPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {deliveryFeatures.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-gray-600">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-gray-600">
                   {feature.icon}
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-gray-900">

@@ -156,7 +156,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
           onClick={() => router.push('/catalog')}
           className={`flex w-full items-center rounded-lg border px-4 py-3 transition-all duration-200 ${
             selectedCategory === null && selectedSubcategory === null
-              ? 'border-yellow-500 bg-yellow-50 text-yellow-700'
+              ? 'text-gray-700'
               : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50'
           }`}
         >
@@ -190,7 +190,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 onClick={() => handleCategoryClick(category.slug)}
                 className={`flex w-full items-center justify-between rounded-lg border px-4 py-3 transition-all duration-200 ${
                   isSelected
-                    ? 'border-yellow-500 bg-yellow-50 text-yellow-700'
+                    ? 'text-gray-700'
                     : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50'
                 }`}
               >
@@ -252,7 +252,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                       }
                       className={`flex w-full items-center justify-between rounded-lg border px-3 py-2 text-sm transition-all duration-200 ${
                         selectedSubcategory === subcategory.slug
-                          ? 'bg-yellow-25 border-yellow-400 text-yellow-600'
+                          ? 'text-gray-600'
                           : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:bg-gray-50'
                       }`}
                     >

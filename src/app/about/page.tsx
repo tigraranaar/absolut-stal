@@ -253,7 +253,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
               <div key={index} className="group text-center">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
                   {value.icon}
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-gray-900">

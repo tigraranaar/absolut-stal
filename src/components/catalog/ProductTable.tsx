@@ -58,7 +58,7 @@ const ProductTable: React.FC<ProductTableProps> = ({
               <tr
                 key={product.id}
                 onClick={() => handleRowClick(product)}
-                className="cursor-pointer transition-colors hover:bg-yellow-50"
+                className="cursor-pointer transition-colors hover:bg-gray-100"
               >
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm font-medium text-gray-900">
@@ -67,7 +67,7 @@ const ProductTable: React.FC<ProductTableProps> = ({
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {product.subcategory_name && (
-                    <span className="inline-flex rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800">
+                    <span className="text-sm text-gray-900">
                       {product.subcategory_name}
                     </span>
                   )}
