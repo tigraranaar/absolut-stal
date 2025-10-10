@@ -52,6 +52,22 @@ export async function generateMetadata({
     title: `${subcategory.name} - ${category.name} | Абсолют Сталь`,
     description: `${subcategory.name} в категории ${category.name}. Широкий ассортимент металлопроката в Ижевске. Доставка по Удмуртии.`,
     keywords: `${subcategory.name.toLowerCase()}, ${category.name.toLowerCase()}, металлопрокат Ижевск`,
+    openGraph: {
+      type: 'website',
+      locale: 'ru_RU',
+      url: `https://absolut-stal.ru/catalog/${categorySlug}/${subcategorySlug}`,
+      siteName: 'Абсолют Сталь, Ижевск',
+      title: `${subcategory.name} - ${category.name} | Абсолют Сталь`,
+      description: `${subcategory.name} в категории ${category.name}. Широкий ассортимент металлопроката в Ижевске. Доставка по Удмуртии.`,
+      images: [
+        {
+          url: 'https://absolut-stal.ru/images/logo.png',
+          width: 800,
+          height: 600,
+          alt: `Абсолют Сталь - ${subcategory.name}`,
+        },
+      ],
+    },
   };
 }
 

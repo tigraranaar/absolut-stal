@@ -4,6 +4,23 @@ export const metadata = {
   title: 'Контакты - Абсолют Сталь | Металлопрокат в Ижевске',
   description:
     'Свяжитесь с нами для заказа металлопроката. Контакты отдела продаж, адрес, телефоны и реквизиты компании Абсолют Сталь.',
+  openGraph: {
+    type: 'website',
+    locale: 'ru_RU',
+    url: 'https://absolut-stal.ru/contacts',
+    siteName: 'Абсолют Сталь, Ижевск',
+    title: 'Контакты - Абсолют Сталь | Металлопрокат в Ижевске',
+    description:
+      'Свяжитесь с нами для заказа металлопроката. Контакты отдела продаж, адрес, телефоны и реквизиты компании Абсолют Сталь.',
+    images: [
+      {
+        url: 'https://absolut-stal.ru/images/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Абсолют Сталь - Контакты',
+      },
+    ],
+  },
 };
 
 export default function ContactsPage() {
