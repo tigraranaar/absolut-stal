@@ -5,6 +5,9 @@ export const metadata = {
   title: 'Доставка и оплата - Абсолют Сталь | Металлопрокат в Ижевске',
   description:
     'Условия доставки металлопроката собственным автопарком и способы оплаты. Доставка по всей Удмуртской Республике и близлежащим регионам.',
+  alternates: {
+    canonical: 'https://absolut-stal.ru/delivery',
+  },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',

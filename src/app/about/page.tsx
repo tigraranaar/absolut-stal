@@ -5,6 +5,9 @@ export const metadata = {
   title: 'О компании - Абсолют Сталь | Металлопрокат в Ижевске',
   description:
     'Узнайте больше о компании Абсолют Сталь - ведущем поставщике металлопроката в Ижевске. Наша история, преимущества и опыт работы.',
+  alternates: {
+    canonical: 'https://absolut-stal.ru/about',
+  },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',

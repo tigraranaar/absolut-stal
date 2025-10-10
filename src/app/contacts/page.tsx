@@ -4,6 +4,9 @@ export const metadata = {
   title: 'Контакты - Абсолют Сталь | Металлопрокат в Ижевске',
   description:
     'Свяжитесь с нами для заказа металлопроката. Контакты отдела продаж, адрес, телефоны и реквизиты компании Абсолют Сталь.',
+  alternates: {
+    canonical: 'https://absolut-stal.ru/contacts',
+  },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
