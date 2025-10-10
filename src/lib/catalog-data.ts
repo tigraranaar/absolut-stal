@@ -1,31 +1,5 @@
-// Импортируем основные JSON файлы для каждой категории
-import structuralSteelData from '../data/metal-rolling/structural-steel.json';
-import pipesData from '../data/metal-rolling/pipes.json';
-import platesData from '../data/metal-rolling/plates.json';
-import roundsData from '../data/metal-rolling/rounds.json';
-import sheetsData from '../data/metal-rolling/sheets-zinc-profiles.json';
-import squaresData from '../data/metal-rolling/squares.json';
-import hexagonsData from '../data/metal-rolling/hexagons.json';
-import reinforcementData from '../data/metal-rolling/reinforcement.json';
-import wireMeshData from '../data/metal-rolling/wire-mesh.json';
-import corrugatedSheetsData from '../data/metal-rolling/corrugated-sheets.json';
-import drywallProfilesData from '../data/metal-rolling/drywall-profiles.json';
-
-import stainlessSheetsData from '../data/stainless-steel/stainless-sheets.json';
-import stainlessPipesData from '../data/stainless-steel/stainless-welded-pipes.json';
-import stainlessSeamlessPipesData from '../data/stainless-steel/stainless-seamless-pipes.json';
-import stainlessRoundsData from '../data/stainless-steel/stainless-rounds.json';
-import stainlessStructuralData from '../data/stainless-steel/stainless-structural.json';
-import stainlessWireData from '../data/stainless-steel/stainless-wire.json';
-import stainlessHexagonsData from '../data/stainless-steel/stainless-hexagons.json';
-import stainlessProfilePipesData from '../data/stainless-steel/stainless-profile-pipes.json';
-import stainlessFittingsData from '../data/stainless-steel/stainless-fittings.json';
-
-import aluminumData from '../data/non-ferrous-metals/aluminum.json';
-import copperData from '../data/non-ferrous-metals/copper.json';
-import brassData from '../data/non-ferrous-metals/brass.json';
-import bronzeData from '../data/non-ferrous-metals/bronze.json';
-import duraluminData from '../data/non-ferrous-metals/duralumin.json';
+import { readdirSync, readFileSync } from 'fs';
+import { join } from 'path';
 
 // Интерфейсы для типизации
 interface Category {
@@ -61,58 +35,83 @@ interface JsonProduct {
   unit: string;
 }
 
-// Загружаем все данные в память
-const allData = {
+// ⚙️ Конфигурация категорий
+// Если добавляете новую категорию:
+// 1. Создайте папку в src/data/ (например: src/data/new-category/)
+// 2. Добавьте её сюда с названием и описанием
+// 3. Положите JSON файлы в папку - они подхватятся автоматически!
+const CATEGORIES_CONFIG = {
   'metal-rolling': {
     name: 'Металлопрокат',
     description: 'Черный металлопрокат',
-    products: [
-      ...structuralSteelData,
-      ...pipesData,
-      ...platesData,
-      ...roundsData,
-      ...sheetsData,
-      ...squaresData,
-      ...hexagonsData,
-      ...reinforcementData,
-      ...wireMeshData,
-      ...corrugatedSheetsData,
-      ...drywallProfilesData,
-    ] as JsonProduct[],
   },
   'stainless-steel': {
     name: 'Нержавеющая сталь',
     description: 'Нержавеющий металлопрокат',
-    products: [
-      ...stainlessSheetsData,
-      ...stainlessPipesData,
-      ...stainlessSeamlessPipesData,
-      ...stainlessRoundsData,
-      ...stainlessStructuralData,
-      ...stainlessWireData,
-      ...stainlessHexagonsData,
-      ...stainlessProfilePipesData,
-      ...stainlessFittingsData,
-    ] as JsonProduct[],
   },
   'non-ferrous-metals': {
     name: 'Цветные металлы',
     description: 'Цветной металлопрокат',
-    products: [
-      ...aluminumData,
-      ...copperData,
-      ...brassData,
-      ...bronzeData,
-      ...duraluminData,
-    ] as JsonProduct[],
   },
 };
+
+// Функция для динамической загрузки всех JSON файлов из категории
+function loadCategoryData(categorySlug: string): JsonProduct[] {
+  const categoryPath = join(process.cwd(), 'src', 'data', categorySlug);
+
+  try {
+    // Читаем все файлы в папке категории
+    const files = readdirSync(categoryPath).filter((file) =>
+      file.endsWith('.json')
+    );
+
+    const allProducts: JsonProduct[] = [];
+
+    // Загружаем каждый JSON файл
+    files.forEach((file) => {
+      const filePath = join(categoryPath, file);
+      const fileContent = readFileSync(filePath, 'utf-8');
+      const products = JSON.parse(fileContent) as JsonProduct[];
+      allProducts.push(...products);
+    });
+
+    return allProducts;
+  } catch (error) {
+    console.warn(
+      `Не удалось загрузить данные для категории ${categorySlug}:`,
+      error
+    );
+    return [];
+  }
+}
+
+// Загружаем все данные динамически
+function loadAllData(): Record<
+  string,
+  { name: string; description: string; products: JsonProduct[] }
+> {
+  const allData: Record<
+    string,
+    { name: string; description: string; products: JsonProduct[] }
+  > = {};
+
+  Object.entries(CATEGORIES_CONFIG).forEach(([categorySlug, categoryInfo]) => {
+    allData[categorySlug] = {
+      name: categoryInfo.name,
+      description: categoryInfo.description,
+      products: loadCategoryData(categorySlug),
+    };
+  });
+
+  return allData;
+}
 
 // Генерируем уникальные ID для товаров
 let productIdCounter = 1;
 
 // Преобразуем JSON данные в формат Product
 function transformJsonToProducts(): Product[] {
+  const allData = loadAllData();
   const allProducts: Product[] = [];
 
   Object.entries(allData).forEach(([categorySlug, categoryData]) => {
@@ -142,8 +141,8 @@ function transformJsonToProducts(): Product[] {
 
 // Получаем все категории с субкатегориями
 export function getCategoriesFromJson(): Category[] {
+  const allData = loadAllData();
   const categories: Category[] = [];
-  const allProducts = transformJsonToProducts();
 
   Object.entries(allData).forEach(([categorySlug, categoryData], index) => {
     // Группируем продукты по productGroup для создания субкатегорий
