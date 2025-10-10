@@ -95,12 +95,49 @@ export default async function SubcategoryPage({
     10000
   );
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: 'https://absolut-stal.ru',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Каталог',
+        item: 'https://absolut-stal.ru/catalog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: category.name,
+        item: `https://absolut-stal.ru/catalog/${categorySlug}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: subcategory.name,
+        item: `https://absolut-stal.ru/catalog/${categorySlug}/${subcategorySlug}`,
+      },
+    ],
+  };
+
   return (
-    <CatalogClient
-      initialCategories={categories}
-      initialProducts={subcategoryProducts.products}
-      preselectedCategory={categorySlug}
-      preselectedSubcategory={subcategorySlug}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <CatalogClient
+        initialCategories={categories}
+        initialProducts={subcategoryProducts.products}
+        preselectedCategory={categorySlug}
+        preselectedSubcategory={subcategorySlug}
+      />
+    </>
   );
 }

@@ -78,11 +78,42 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     10000
   );
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: 'https://absolut-stal.ru',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Каталог',
+        item: 'https://absolut-stal.ru/catalog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: category.name,
+        item: `https://absolut-stal.ru/catalog/${categorySlug}`,
+      },
+    ],
+  };
+
   return (
-    <CatalogClient
-      initialCategories={categories}
-      initialProducts={categoryProducts.products}
-      preselectedCategory={categorySlug}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <CatalogClient
+        initialCategories={categories}
+        initialProducts={categoryProducts.products}
+        preselectedCategory={categorySlug}
+      />
+    </>
   );
 }

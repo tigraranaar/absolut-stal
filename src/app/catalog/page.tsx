@@ -37,7 +37,35 @@ export default function CatalogPage() {
   const categories = getCategoriesFromJson();
   const products = getAllProductsFromJson();
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: 'https://absolut-stal.ru',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Каталог',
+        item: 'https://absolut-stal.ru/catalog',
+      },
+    ],
+  };
+
   return (
-    <CatalogClient initialCategories={categories} initialProducts={products} />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <CatalogClient
+        initialCategories={categories}
+        initialProducts={products}
+      />
+    </>
   );
 }

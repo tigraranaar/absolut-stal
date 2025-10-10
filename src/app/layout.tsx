@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import HeaderWrapper from '@/components/layout/HeaderWrapper';
 import Footer from '@/components/layout/Footer';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 
@@ -52,6 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
+      <GoogleTagManager gtmId="GTM-56M42HM" />
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">
           <HeaderWrapper />

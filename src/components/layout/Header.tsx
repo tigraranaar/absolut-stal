@@ -160,10 +160,10 @@ const Header: React.FC<HeaderProps> = ({
                     +7 (3412) 566822
                   </a>
                   <a
-                    href="mailto:info@absolutstal.ru"
+                    href="mailto:abst18@bk.ru"
                     className="block text-xs text-gray-500 hover:text-yellow-600"
                   >
-                    info@absolutstal.ru
+                    abst18@bk.ru
                   </a>
                 </div>
               </div>

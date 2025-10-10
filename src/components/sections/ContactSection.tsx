@@ -86,8 +86,8 @@ const ContactSection: React.FC = () => {
         </svg>
       ),
       title: 'Email',
-      value: 'info@absolut-stal.ru',
-      link: 'mailto:info@absolut-stal.ru',
+      value: 'abst18@bk.ru',
+      link: 'mailto:abst18@bk.ru',
     },
   ];
 
