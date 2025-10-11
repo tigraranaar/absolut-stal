@@ -72,7 +72,12 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Кнопки действий и контакты */}
           <div className="hidden items-center space-x-6 md:flex">
-            <button className="rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600">
+            <button
+              onClick={() => {
+                window.jivo_api?.open();
+              }}
+              className="rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
+            >
               Заказать звонок
             </button>
             <div className="flex flex-col text-right">
@@ -148,7 +153,10 @@ const Header: React.FC<HeaderProps> = ({
               <div className="space-y-2 pt-4">
                 <button
                   className="block w-full rounded-md bg-yellow-500 px-4 py-2 text-center text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.jivo_api?.open();
+                  }}
                 >
                   Заказать звонок
                 </button>
