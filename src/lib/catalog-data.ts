@@ -47,19 +47,42 @@ function createSlug(text: string): string {
 
 // ⚙️ Конфигурация категорий (теперь с соответствием папок)
 // Ключ = название папки в src/data/
-// Значение = название и описание категории
-const CATEGORIES_CONFIG = {
+// Значение = название, описание и SEO-данные категории
+interface CategoryConfig {
+  name: string;
+  description: string;
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+}
+
+const CATEGORIES_CONFIG: Record<string, CategoryConfig> = {
   'metal-rolling': {
     name: 'Металлопрокат',
-    description: 'Черный металлопрокат',
+    description: 'Широкий ассортимент черного металлопроката',
+    seoTitle: 'Металлопрокат в Ижевске — купить черный металл с доставкой',
+    seoDescription:
+      'Черный металлопрокат в Ижевске: арматура, трубы, листы, балки, швеллеры. Собственный склад, доставка по Удмуртии, резка в размер. Звоните!',
+    seoKeywords:
+      'металлопрокат Ижевск, черный металл, арматура, трубы, листовой металл',
   },
   'stainless-steel': {
     name: 'Нержавеющая сталь',
-    description: 'Нержавеющий металлопрокат',
+    description: 'Широкий ассортимент нержавеющего металлопроката',
+    seoTitle: 'Нержавеющая сталь в Ижевске — лист, труба, круг',
+    seoDescription:
+      'Нержавейка в Ижевске: листы, трубы, круги, профили из нержавеющей стали. Различные марки и размеры. Доставка по Удмуртии. Консультация специалиста.',
+    seoKeywords:
+      'нержавейка Ижевск, нержавеющая сталь, нержавеющий лист, нержавеющая труба',
   },
   'non-ferrous-metals': {
     name: 'Цветные металлы',
-    description: 'Цветной металлопрокат',
+    description: 'Широкий ассортимент цветного металлопроката',
+    seoTitle: 'Цветные металлы в Ижевске — алюминий, медь, бронза',
+    seoDescription:
+      'Цветной металлопрокат: алюминий, медь, бронза, латунь, дюраль. Все виды и размеры на складе. Доставка по Ижевску и Удмуртии. Оптовые цены.',
+    seoKeywords:
+      'цветные металлы Ижевск, алюминий, медь, бронза, латунь, дюраль',
   },
 };
 
@@ -314,5 +337,28 @@ export function getCatalogStatsFromJson() {
     totalProducts: allProducts.length,
     totalCategories: categories.length,
     productsByCategory,
+  };
+}
+
+// Получаем SEO-данные для категории по slug
+export function getCategorySeoData(categorySlug: string): {
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+} | null {
+  // Находим конфигурацию категории по slug
+  const configEntry = Object.entries(CATEGORIES_CONFIG).find(
+    ([, config]) => createSlug(config.name) === categorySlug
+  );
+
+  if (!configEntry) {
+    return null;
+  }
+
+  const config = configEntry[1];
+  return {
+    seoTitle: config.seoTitle,
+    seoDescription: config.seoDescription,
+    seoKeywords: config.seoKeywords,
   };
 }
