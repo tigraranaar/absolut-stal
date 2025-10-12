@@ -248,11 +248,21 @@ export default function DeliveryPage() {
       </section>
 
       {/* Доставка */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/maz.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.4)',
+          }}
+        ></div>
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">Доставка</h2>
-            <p className="mx-auto max-w-3xl text-xl text-gray-600">
+            <h2 className="mb-4 text-3xl font-bold text-white">Доставка</h2>
+            <p className="mx-auto max-w-3xl text-xl text-gray-200">
               Продукция доставляется собственным парком специализированных
               грузовых автомобилей
             </p>
@@ -289,13 +299,13 @@ export default function DeliveryPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {deliveryFeatures.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-gray-600">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-white">
                   {feature.icon}
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <p className="text-sm text-gray-200">{feature.description}</p>
               </div>
             ))}
           </div>
