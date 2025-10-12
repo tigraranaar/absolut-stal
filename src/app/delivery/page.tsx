@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import RussiaMap from '@/components/RussiaMap';
 
 export const metadata = {
   title: 'Доставка и оплата - Абсолют Сталь | Металлопрокат в Ижевске',
@@ -389,56 +390,7 @@ export default function DeliveryPage() {
         </div>
       </section>
 
-      {/* Регионы доставки */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              Регионы доставки
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600">
-              Доставляем металлопрокат по всей Удмуртской Республике и
-              близлежащим регионам
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500">
-                <span className="text-lg font-bold text-white">И</span>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Ижевск</h3>
-              <p className="text-sm text-gray-600">Столица Удмуртии</p>
-            </div>
-
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500">
-                <span className="text-lg font-bold text-white">У</span>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Удмуртия</h3>
-              <p className="text-sm text-gray-600">Весь регион</p>
-            </div>
-
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500">
-                <span className="text-lg font-bold text-white">Т</span>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Татарстан</h3>
-              <p className="text-sm text-gray-600">Республика</p>
-            </div>
-
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500">
-                <span className="text-lg font-bold text-white">К</span>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">
-                Кировская обл.
-              </h3>
-              <p className="text-sm text-gray-600">Область</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RussiaMap />
 
       {/* CTA секция */}
       <section className="bg-yellow-500 py-20">
