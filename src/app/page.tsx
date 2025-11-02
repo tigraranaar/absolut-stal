@@ -30,6 +30,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  other: {
+    'yandex-verification': 'd9e454a1bfbbd110',
+  },
 };
 
 export default function Home() {
