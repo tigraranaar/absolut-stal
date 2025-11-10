@@ -47,12 +47,10 @@ export default function ContactsPage() {
     },
     {
       name: 'ООО «Абсолют Сталь+»',
-      address:
-        '125315, Г.МОСКВА, ВН.ТЕР.Г. МУНИЦИПАЛЬНЫЙ ОКРУГ СОКОЛ, ПР-КТ ЛЕНИНГРАДСКИЙ, Д.80, К.66, ПОМЕЩ. 1406',
-      ogrn: 'ОГРН 1237700488233',
-      inn: 'ИНН/КПП 7743422654/774301001',
+      ogrn: 'ОГРН: 1237700488233',
+      inn: 'ИНН/КПП: 7743422654/774301001',
       bank: 'ОТДЕЛЕНИЕ № 8618 СБЕРБАНКА РОССИИ г. ИЖЕВСК',
-      account: 'р/с 40702810168000005050',
+      account: 'р/с: 40702810168000005050',
       bik: 'БИК: 049401601',
     },
   ];
@@ -111,42 +109,17 @@ export default function ContactsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              Контактная информация
+              Реквизиты Компании
             </h2>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600">
-              Основной офис и филиалы компании
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-1">
             <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <h3 className="mb-6 text-2xl font-bold text-gray-900">
                 {branches[1].name}
               </h3>
 
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Адрес:</p>
-                    <p className="text-gray-600">{branches[1].address}</p>
-                  </div>
-                </div>
-
                 <div className="flex items-start space-x-3">
                   <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
                     <svg

@@ -133,25 +133,6 @@ export default function DeliveryPage() {
         </svg>
       ),
     },
-    {
-      name: 'Электронные платежи',
-      description: 'Яндекс.Деньги, Qiwi, BTC',
-      icon: (
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      ),
-    },
   ];
 
   const deliveryFeatures = [
@@ -324,7 +305,7 @@ export default function DeliveryPage() {
           </div>
 
           {/* Способы оплаты */}
-          <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2">
             {paymentMethods.map((method, index) => (
               <div
                 key={index}
