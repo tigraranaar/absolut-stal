@@ -41,12 +41,12 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   );
 
   const handleCategoryClick = (categorySlug: string) => {
-    // Если категория уже выбрана - ничего не делаем
     if (selectedCategory === categorySlug) {
       return;
     }
 
-    // Переходим на страницу категории
+    onCategoryChange(categorySlug);
+    onSubcategoryChange(null);
     router.push(`/catalog/${categorySlug}`);
   };
 
@@ -54,12 +54,12 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
     categorySlug: string,
     subcategorySlug: string
   ) => {
-    // Если субкатегория уже выбрана - ничего не делаем
     if (selectedSubcategory === subcategorySlug) {
       return;
     }
 
-    // Переходим на страницу подкатегории
+    onCategoryChange(categorySlug);
+    onSubcategoryChange(subcategorySlug);
     router.push(`/catalog/${categorySlug}/${subcategorySlug}`);
   };
 
@@ -153,7 +153,11 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       <div className="space-y-2">
         {/* Кнопка "Все категории" - переход на главную страницу каталога */}
         <button
-          onClick={() => router.push('/catalog')}
+          onClick={() => {
+            onCategoryChange(null);
+            onSubcategoryChange(null);
+            router.push('/catalog');
+          }}
           className={`flex w-full items-center rounded-lg border px-4 py-3 transition-all duration-200 ${
             selectedCategory === null && selectedSubcategory === null
               ? 'text-gray-700'

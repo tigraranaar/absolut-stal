@@ -7,6 +7,8 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Абсолют Сталь - Металлопрокат в Ижевске',
   description:
