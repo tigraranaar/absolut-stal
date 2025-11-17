@@ -25,15 +25,19 @@ interface Product {
   [key: string]: string | number;
 }
 
+interface CatalogData {
+  categories: Category[];
+  products: Product[];
+  generatedAt: string;
+}
+
 interface CatalogClientProps {
   initialCategories: Category[];
-  initialProducts: Product[];
   preselectedCategory?: string | null;
 }
 
 export default function CatalogClient({
   initialCategories,
-  initialProducts,
   preselectedCategory = null,
 }: CatalogClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -42,13 +46,39 @@ export default function CatalogClient({
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
   const [currentPage, setCurrentPage] = useState(1);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
   const itemsPerPage = 25;
+
+  // Загружаем данные каталога на клиенте из статического JSON файла
+  useEffect(() => {
+    async function loadCatalogData() {
+      try {
+        const response = await fetch('/catalog-data.json');
+        if (!response.ok) {
+          throw new Error('Failed to load catalog data');
+        }
+        const data: CatalogData = await response.json();
+        setProducts(data.products);
+      } catch (error) {
+        console.error('Ошибка загрузки данных каталога:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadCatalogData();
+  }, []);
 
   // Сохраняем исходную категорию из URL для восстановления при очистке поиска
   const initialCategoryFromUrl = preselectedCategory;
 
   const filteredProducts = useMemo(() => {
-    let filtered = initialProducts;
+    if (loading || products.length === 0) {
+      return [];
+    }
+
+    let filtered = products;
 
     // Если есть поисковый запрос, ищем по всем товарам (игнорируем категорию)
     // Если поиска нет, фильтруем по выбранной категории
@@ -67,7 +97,7 @@ export default function CatalogClient({
     }
 
     return filtered;
-  }, [initialProducts, selectedCategory, searchQuery]);
+  }, [products, selectedCategory, searchQuery, loading]);
 
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -186,7 +216,15 @@ export default function CatalogClient({
               </div>
 
               {/* Список товаров */}
-              {paginatedProducts.length === 0 ? (
+              {loading ? (
+                <div className="py-20 text-center">
+                  <div className="mb-4 text-6xl text-gray-400">⏳</div>
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                    Загрузка каталога...
+                  </h3>
+                  <p className="text-gray-600">Пожалуйста, подождите</p>
+                </div>
+              ) : paginatedProducts.length === 0 ? (
                 <div className="py-20 text-center">
                   <div className="mb-4 text-6xl text-gray-400">🔍</div>
                   <h3 className="mb-2 text-xl font-semibold text-gray-900">

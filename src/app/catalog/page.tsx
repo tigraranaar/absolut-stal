@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  getCategoriesFromJson,
-  getAllProductsFromJson,
-} from '@/lib/catalog-data';
+import { getCategoriesFromJson } from '@/lib/catalog-data';
 import CatalogClient from '@/components/catalog/CatalogClient';
 
 export const metadata = {
@@ -37,7 +34,8 @@ export const metadata = {
 
 export default function CatalogPage() {
   const categories = getCategoriesFromJson();
-  const products = getAllProductsFromJson();
+  // Данные товаров загружаются на клиенте из статического JSON файла
+  // Это уменьшает размер HTML страниц с ~5MB до нескольких KB
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -64,10 +62,7 @@ export default function CatalogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <CatalogClient
-        initialCategories={categories}
-        initialProducts={products}
-      />
+      <CatalogClient initialCategories={categories} />
     </>
   );
 }

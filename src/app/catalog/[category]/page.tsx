@@ -1,10 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import {
-  getCategoriesFromJson,
-  getAllProductsFromJson,
-  getCategorySeoData,
-} from '@/lib/catalog-data';
+import { getCategoriesFromJson, getCategorySeoData } from '@/lib/catalog-data';
 import CatalogClient from '@/components/catalog/CatalogClient';
 import type { Metadata } from 'next';
 
@@ -88,8 +84,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  // Получаем ВСЕ товары для возможности переключения между категориями
-  const allProducts = getAllProductsFromJson();
+  // Данные товаров загружаются на клиенте из статического JSON файла
+  // Это уменьшает размер HTML страниц с ~5MB до нескольких KB
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -124,7 +120,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       />
       <CatalogClient
         initialCategories={categories}
-        initialProducts={allProducts}
         preselectedCategory={categorySlug}
       />
     </>
