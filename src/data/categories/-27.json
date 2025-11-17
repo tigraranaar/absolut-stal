@@ -1,0 +1,236 @@
+[
+  {
+    "productName": "63x40",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "75x50",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "75x50",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "100x63",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "100x63",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "125x80",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "125x80",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "160x100",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "25x25 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "3"
+  },
+  {
+    "productName": "25x25 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "32x32 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "3 ; 4"
+  },
+  {
+    "productName": "35x35 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "40x40",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "3"
+  },
+  {
+    "productName": "40x40",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "40x40 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "3"
+  },
+  {
+    "productName": "40x40 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "45x45",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4 ; 5"
+  },
+  {
+    "productName": "45x45 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "50x50",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4 ; 5"
+  },
+  {
+    "productName": "50x50 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "50x50 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "63x63",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "4 ; 5; 6"
+  },
+  {
+    "productName": "63x63 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "63x63 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "70x70",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5 ; 6"
+  },
+  {
+    "productName": "70x70 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "75x75",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5 ; 6"
+  },
+  {
+    "productName": "75x75",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "75x75 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "80x80",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "6 ; 8"
+  },
+  {
+    "productName": "90x90",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "6 ; 7"
+  },
+  {
+    "productName": "100x100",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "7 ; 8; 10"
+  },
+  {
+    "productName": "100x100 6м",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "7 ; 8"
+  },
+  {
+    "productName": "110x110",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "7 ; 8"
+  },
+  {
+    "productName": "125x125",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "125x125",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "140x140",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "160x160",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "160x160",
+    "productGroup": "УГОЛОК",
+    "unit": "т",
+    "толщина": "12"
+  }
+]

@@ -7,8 +7,7 @@ interface Product {
   unit: string;
   category_name: string;
   category_slug: string;
-  subcategory_name?: string;
-  subcategory_slug?: string;
+  [key: string]: string | number;
 }
 
 interface ProductTableProps {
@@ -28,6 +27,20 @@ const ProductTable: React.FC<ProductTableProps> = ({
     }
   };
 
+  // Получаем все дополнительные поля из продуктов (кроме стандартных)
+  const standardFields = [
+    'id',
+    'product_name',
+    'product_group',
+    'unit',
+    'category_name',
+    'category_slug',
+  ];
+  const additionalFields =
+    products.length > 0
+      ? Object.keys(products[0]).filter((key) => !standardFields.includes(key))
+      : [];
+
   return (
     <div
       className={`overflow-hidden rounded-lg border border-gray-200 bg-white ${className}`}
@@ -39,17 +52,17 @@ const ProductTable: React.FC<ProductTableProps> = ({
               <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
                 Название товара
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
-                Субкатегория
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
-                Группа
-              </th>
+              {additionalFields.map((field) => (
+                <th
+                  key={field}
+                  className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase"
+                >
+                  {field.charAt(0).toUpperCase() +
+                    field.slice(1).replace(/_/g, ' ')}
+                </th>
+              ))}
               <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
                 Ед. измерения
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
-                Категория
               </th>
             </tr>
           </thead>
@@ -65,32 +78,17 @@ const ProductTable: React.FC<ProductTableProps> = ({
                     {product.product_name}
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {product.subcategory_name && (
+                {additionalFields.map((field) => (
+                  <td key={field} className="px-6 py-4 whitespace-nowrap">
                     <span className="text-sm text-gray-900">
-                      {product.subcategory_name}
+                      {String(product[field] || '')}
                     </span>
-                  )}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {product.product_group}
-                  </div>
-                </td>
+                  </td>
+                ))}
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="inline-flex rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
                     {product.unit}
                   </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <div className="mr-2 h-4 w-4 rounded bg-gray-100 p-1">
-                      {getCategoryIcon(product.category_slug)}
-                    </div>
-                    <span className="text-sm text-gray-900">
-                      {product.category_name}
-                    </span>
-                  </div>
                 </td>
               </tr>
             ))}
@@ -100,75 +98,5 @@ const ProductTable: React.FC<ProductTableProps> = ({
     </div>
   );
 };
-
-// Функция для получения иконки категории
-function getCategoryIcon(categorySlug: string) {
-  switch (categorySlug) {
-    case 'metal-rolling':
-      return (
-        <svg
-          className="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-          />
-        </svg>
-      );
-    case 'stainless-steel':
-      return (
-        <svg
-          className="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      );
-    case 'non-ferrous-metals':
-      return (
-        <svg
-          className="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      );
-    default:
-      return (
-        <svg
-          className="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-          />
-        </svg>
-      );
-  }
-}
 
 export default ProductTable;

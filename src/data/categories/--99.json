@@ -1,0 +1,80 @@
+[
+  {
+    "productName": "Ст3        20",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "Ст3        25",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "Ст3        30",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "Ст3        40",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "Ст3        40",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "Ст3        40",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "Ст3        40",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "Ст3        50",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "Ст3        50",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "Ст3        60",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "Ст3       100",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "Ст3       100",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "Ст3       100 рез",
+    "productGroup": "ПОЛОСА Г/К",
+    "unit": "т",
+    "толщина": "6"
+  }
+]

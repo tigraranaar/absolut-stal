@@ -1,0 +1,236 @@
+[
+  {
+    "productName": "125x80",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "140x90",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8 ; 10"
+  },
+  {
+    "productName": "160x100",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "160x100",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "160x100",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "14"
+  },
+  {
+    "productName": "200x125",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "200x125",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "14"
+  },
+  {
+    "productName": "25x25 6м",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "32x32  6м",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "35x35 6м",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "40x40",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "40x40 6м",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "50x50",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "4"
+  },
+  {
+    "productName": "50x50",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "63x63",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "5 ; 6"
+  },
+  {
+    "productName": "70x70",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "5"
+  },
+  {
+    "productName": "70x70",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "75x75",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "5 ; 6"
+  },
+  {
+    "productName": "75x75",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "80x80",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "6 ; 7; 8"
+  },
+  {
+    "productName": "90x90",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "6"
+  },
+  {
+    "productName": "90x90",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "7"
+  },
+  {
+    "productName": "90x90",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "100x100",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "7"
+  },
+  {
+    "productName": "100x100",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8 ; 10; 12"
+  },
+  {
+    "productName": "110x110",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "125x125",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "8"
+  },
+  {
+    "productName": "125x125",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "9 ; 10"
+  },
+  {
+    "productName": "125x125",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "140x140",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "9"
+  },
+  {
+    "productName": "140x140",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "10"
+  },
+  {
+    "productName": "140x140",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "160x160",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "160x160",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "16"
+  },
+  {
+    "productName": "180x180",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "11"
+  },
+  {
+    "productName": "180x180",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "12"
+  },
+  {
+    "productName": "200x200",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "14"
+  },
+  {
+    "productName": "200x200",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "16 ; 20"
+  },
+  {
+    "productName": "200x200",
+    "productGroup": "УГОЛОК НИЗКОЛЕГИР",
+    "unit": "т",
+    "толщина": "25"
+  }
+]

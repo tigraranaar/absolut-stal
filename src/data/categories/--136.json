@@ -1,0 +1,338 @@
+[
+  {
+    "productName": "В95",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12 ; 16"
+  },
+  {
+    "productName": "В95",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "В95",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20"
+  },
+  {
+    "productName": "В95",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "25 ; 30; 40"
+  },
+  {
+    "productName": "В95",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "50"
+  },
+  {
+    "productName": "В95 АТП",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12 ; 14; 16"
+  },
+  {
+    "productName": "В95 Т1",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "16"
+  },
+  {
+    "productName": "В95 Т1",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20 ; 30; 45; 50"
+  },
+  {
+    "productName": "В95Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "16"
+  },
+  {
+    "productName": "В95Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20 ; 30"
+  },
+  {
+    "productName": "В95Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "50"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12 ; 14"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "14 ; 15"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "16"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "16"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20 ; 22; 25"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "25"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "30"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "30"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "32 ; 35"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "35"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "40 ; 45"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "45"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "50"
+  },
+  {
+    "productName": "Д16",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "55 ; 60; 65; 70; 75; 80; 90; 100; 110; 120"
+  },
+  {
+    "productName": "Д16 уценка",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "15 ; 16"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "16"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20 ; 25"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "25"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "30"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "30"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "32 ; 35; 40"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "40"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "45 ; 50"
+  },
+  {
+    "productName": "Д16Б",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "55 ; 60; 85"
+  },
+  {
+    "productName": "Д16Б уценка",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "12"
+  },
+  {
+    "productName": "Д16Б уценка",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20 ; 35; 40"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "14 ; 15; 16; 18"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "18"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "20"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "22 ; 25; 28; 30; 35"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "35"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "40"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "40"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "45 ; 50"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "55 ; 60; 65; 70"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "70"
+  },
+  {
+    "productName": "Д16Т",
+    "productGroup": "ДЮРАЛЕВАЯ ПЛИТА",
+    "unit": "т",
+    "ед.изм": "75 ; 80; 80; 100; 120; 130"
+  }
+]

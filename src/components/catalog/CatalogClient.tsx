@@ -7,19 +7,12 @@ import ProductCard from '@/components/catalog/ProductCard';
 import ProductTable from '@/components/catalog/ProductTable';
 import ViewToggle from '@/components/catalog/ViewToggle';
 
-interface Subcategory {
-  id: number;
-  name: string;
-  slug: string;
-  product_count?: number;
-}
-
 interface Category {
   id: number;
   name: string;
   slug: string;
   description: string;
-  subcategories?: Subcategory[];
+  product_count: number;
 }
 
 interface Product {
@@ -29,28 +22,22 @@ interface Product {
   unit: string;
   category_name: string;
   category_slug: string;
-  subcategory_name?: string;
-  subcategory_slug?: string;
+  [key: string]: string | number;
 }
 
 interface CatalogClientProps {
   initialCategories: Category[];
   initialProducts: Product[];
   preselectedCategory?: string | null;
-  preselectedSubcategory?: string | null;
 }
 
 export default function CatalogClient({
   initialCategories,
   initialProducts,
   preselectedCategory = null,
-  preselectedSubcategory = null,
 }: CatalogClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     preselectedCategory
-  );
-  const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(
-    preselectedSubcategory
   );
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
@@ -66,12 +53,6 @@ export default function CatalogClient({
       );
     }
 
-    if (selectedSubcategory) {
-      filtered = filtered.filter(
-        (product) => product.subcategory_slug === selectedSubcategory
-      );
-    }
-
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -83,7 +64,7 @@ export default function CatalogClient({
     }
 
     return filtered;
-  }, [initialProducts, selectedCategory, selectedSubcategory, searchQuery]);
+  }, [initialProducts, selectedCategory, searchQuery]);
 
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -95,7 +76,7 @@ export default function CatalogClient({
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, selectedSubcategory, searchQuery]);
+  }, [selectedCategory, searchQuery]);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -103,12 +84,6 @@ export default function CatalogClient({
 
   const handleCategoryChange = (categorySlug: string | null) => {
     setSelectedCategory(categorySlug);
-    setSelectedSubcategory(null);
-    setSearchQuery('');
-  };
-
-  const handleSubcategoryChange = (subcategorySlug: string | null) => {
-    setSelectedSubcategory(subcategorySlug);
     setSearchQuery('');
   };
 
@@ -124,15 +99,7 @@ export default function CatalogClient({
   };
 
   const getCurrentLevelName = () => {
-    if (selectedSubcategory) {
-      const category = initialCategories.find(
-        (c) => c.slug === selectedCategory
-      );
-      const subcategory = category?.subcategories?.find(
-        (s) => s.slug === selectedSubcategory
-      );
-      return subcategory?.name || 'Субкатегория';
-    } else if (selectedCategory) {
+    if (selectedCategory) {
       return (
         initialCategories.find((c) => c.slug === selectedCategory)?.name ||
         'Категория'
@@ -174,9 +141,7 @@ export default function CatalogClient({
               <CategoryFilter
                 categories={initialCategories}
                 selectedCategory={selectedCategory}
-                selectedSubcategory={selectedSubcategory}
                 onCategoryChange={handleCategoryChange}
-                onSubcategoryChange={handleSubcategoryChange}
                 className="sticky top-8"
               />
             </div>

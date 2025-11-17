@@ -1,0 +1,26 @@
+[
+  {
+    "productName": "Ст3",
+    "productGroup": "КРУГ Г/К",
+    "unit": "т",
+    "диаметр": "14 ; 16; 18; 20; 25"
+  },
+  {
+    "productName": "Ст3     оцинк",
+    "productGroup": "КРУГ Г/К",
+    "unit": "т",
+    "диаметр": "16"
+  },
+  {
+    "productName": "Ст3     оцинк К",
+    "productGroup": "КРУГ Г/К",
+    "unit": "т",
+    "диаметр": "8"
+  },
+  {
+    "productName": "Ст3    н/д",
+    "productGroup": "КРУГ Г/К",
+    "unit": "т",
+    "диаметр": "12"
+  }
+]

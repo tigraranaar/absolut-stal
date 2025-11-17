@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import './globals.css';
 import HeaderWrapper from '@/components/layout/HeaderWrapper';
 import Footer from '@/components/layout/Footer';
-import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 

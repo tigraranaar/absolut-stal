@@ -49,18 +49,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Страницы подкатегорий
-  const subcategoryPages: MetadataRoute.Sitemap = [];
-  categories.forEach((category) => {
-    category.subcategories?.forEach((subcategory) => {
-      subcategoryPages.push({
-        url: `${baseUrl}/catalog/${category.slug}/${subcategory.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 0.7,
-      });
-    });
-  });
-
-  return [...staticPages, ...categoryPages, ...subcategoryPages];
+  return [...staticPages, ...categoryPages];
 }

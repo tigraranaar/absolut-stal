@@ -8,14 +8,7 @@ interface Category {
   name: string;
   slug: string;
   description: string;
-  subcategories?: Subcategory[];
-}
-
-interface Subcategory {
-  id: number;
-  name: string;
-  slug: string;
-  product_count?: number;
+  product_count: number;
 }
 
 interface Product {
@@ -25,8 +18,7 @@ interface Product {
   unit: string;
   category_name: string;
   category_slug: string;
-  subcategory_name?: string;
-  subcategory_slug?: string;
+  [key: string]: string | number; // Для дополнительных полей из таблиц
 }
 
 // Структура данных из JSON файлов
@@ -34,6 +26,7 @@ interface JsonProduct {
   productGroup: string;
   productName: string;
   unit: string;
+  [key: string]: string; // Для дополнительных полей из таблиц
 }
 
 // Функция создания slug из текста (транслитерация через библиотеку slugify)
@@ -45,110 +38,60 @@ function createSlug(text: string): string {
   });
 }
 
-// ⚙️ Конфигурация категорий (теперь с соответствием папок)
-// Ключ = название папки в src/data/
-// Значение = название, описание и SEO-данные категории
-interface CategoryConfig {
-  name: string;
-  description: string;
-  seoTitle: string;
-  seoDescription: string;
-  seoKeywords: string;
+// Функция для Capitalize (первая буква каждого слова заглавная, остальные строчные)
+function capitalize(text: string): string {
+  if (!text) return text;
+  return text
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
 }
 
-const CATEGORIES_CONFIG: Record<string, CategoryConfig> = {
-  'metal-rolling': {
-    name: 'Металлопрокат',
-    description: 'Широкий ассортимент черного металлопроката',
-    seoTitle: 'Металлопрокат в Ижевске — купить черный металл с доставкой',
-    seoDescription:
-      'Черный металлопрокат в Ижевске: арматура, трубы, листы, балки, швеллеры. Собственный склад, доставка по Удмуртии, резка в размер. Звоните!',
-    seoKeywords:
-      'металлопрокат Ижевск, черный металл, арматура, трубы, листовой металл',
-  },
-  'stainless-steel': {
-    name: 'Нержавеющая сталь',
-    description: 'Широкий ассортимент нержавеющего металлопроката',
-    seoTitle: 'Нержавеющая сталь в Ижевске — лист, труба, круг',
-    seoDescription:
-      'Нержавейка в Ижевске: листы, трубы, круги, профили из нержавеющей стали. Различные марки и размеры. Доставка по Удмуртии. Консультация специалиста.',
-    seoKeywords:
-      'нержавейка Ижевск, нержавеющая сталь, нержавеющий лист, нержавеющая труба',
-  },
-  'non-ferrous-metals': {
-    name: 'Цветные металлы',
-    description: 'Широкий ассортимент цветного металлопроката',
-    seoTitle: 'Цветные металлы в Ижевске — алюминий, медь, бронза',
-    seoDescription:
-      'Цветной металлопрокат: алюминий, медь, бронза, латунь, дюраль. Все виды и размеры на складе. Доставка по Ижевску и Удмуртии. Оптовые цены.',
-    seoKeywords:
-      'цветные металлы Ижевск, алюминий, медь, бронза, латунь, дюраль',
-  },
-};
-
-// Функция для динамической загрузки всех JSON файлов из категории
-function loadCategoryData(categorySlug: string): JsonProduct[] {
-  const categoryPath = join(process.cwd(), 'src', 'data', categorySlug);
+// Функция для загрузки всех категорий из JSON файлов
+function loadAllCategories(): Map<
+  string,
+  { name: string; products: JsonProduct[] }
+> {
+  const categoriesDir = join(process.cwd(), 'src', 'data', 'categories');
+  const categoriesMap = new Map<
+    string,
+    { name: string; products: JsonProduct[] }
+  >();
 
   try {
-    // Читаем все файлы в папке категории
-    const files = readdirSync(categoryPath).filter((file) =>
+    // Читаем все JSON файлы в папке categories
+    const files = readdirSync(categoriesDir).filter((file) =>
       file.endsWith('.json')
     );
 
-    const allProducts: JsonProduct[] = [];
-
-    // Загружаем каждый JSON файл
     files.forEach((file) => {
-      const filePath = join(categoryPath, file);
+      const filePath = join(categoriesDir, file);
       const fileContent = readFileSync(filePath, 'utf-8');
       const products = JSON.parse(fileContent) as JsonProduct[];
-      allProducts.push(...products);
+
+      if (products.length > 0) {
+        // Название категории берется из productGroup (одинаковое для всех товаров в файле)
+        const rawCategoryName = products[0].productGroup;
+        const categoryName = capitalize(rawCategoryName);
+        const categorySlug = createSlug(rawCategoryName);
+
+        // Если категория уже существует, объединяем продукты
+        if (categoriesMap.has(categorySlug)) {
+          const existing = categoriesMap.get(categorySlug)!;
+          existing.products.push(...products);
+        } else {
+          categoriesMap.set(categorySlug, {
+            name: categoryName,
+            products,
+          });
+        }
+      }
     });
-
-    return allProducts;
   } catch (error) {
-    console.warn(
-      `Не удалось загрузить данные для категории ${categorySlug}:`,
-      error
-    );
-    return [];
+    console.error('Ошибка при загрузке категорий:', error);
   }
-}
 
-// Загружаем все данные динамически
-function loadAllData(): Record<
-  string,
-  {
-    name: string;
-    description: string;
-    products: JsonProduct[];
-    folderName: string;
-  }
-> {
-  const allData: Record<
-    string,
-    {
-      name: string;
-      description: string;
-      products: JsonProduct[];
-      folderName: string;
-    }
-  > = {};
-
-  Object.entries(CATEGORIES_CONFIG).forEach(([folderName, categoryInfo]) => {
-    // Генерируем slug из названия категории через транслитерацию
-    const categorySlug = createSlug(categoryInfo.name);
-
-    allData[categorySlug] = {
-      name: categoryInfo.name,
-      description: categoryInfo.description,
-      products: loadCategoryData(folderName), // Загружаем из папки с английским названием
-      folderName: folderName,
-    };
-  });
-
-  return allData;
+  return categoriesMap;
 }
 
 // Генерируем уникальные ID для товаров
@@ -156,63 +99,52 @@ let productIdCounter = 1;
 
 // Преобразуем JSON данные в формат Product
 function transformJsonToProducts(): Product[] {
-  const allData = loadAllData();
+  const categoriesMap = loadAllCategories();
   const allProducts: Product[] = [];
 
-  Object.entries(allData).forEach(([categorySlug, categoryData]) => {
+  categoriesMap.forEach((categoryData, categorySlug) => {
     categoryData.products.forEach((jsonProduct) => {
-      // Создаем slug для подкатегории через транслитерацию
-      const subcategorySlug = createSlug(jsonProduct.productGroup);
-
-      allProducts.push({
+      const product: Product = {
         id: productIdCounter++,
         product_name: jsonProduct.productName,
         product_group: jsonProduct.productGroup,
         unit: jsonProduct.unit,
         category_name: categoryData.name,
         category_slug: categorySlug,
-        subcategory_name: jsonProduct.productGroup,
-        subcategory_slug: subcategorySlug,
+      };
+
+      // Добавляем дополнительные поля из JSON (например, диаметр, марка и т.д.)
+      Object.keys(jsonProduct).forEach((key) => {
+        if (!['productGroup', 'productName', 'unit'].includes(key)) {
+          product[key] = jsonProduct[key];
+        }
       });
+
+      allProducts.push(product);
     });
   });
 
   return allProducts;
 }
 
-// Получаем все категории с субкатегориями
+// Получаем все категории (без субкатегорий)
 export function getCategoriesFromJson(): Category[] {
-  const allData = loadAllData();
+  const categoriesMap = loadAllCategories();
   const categories: Category[] = [];
+  let index = 0;
 
-  Object.entries(allData).forEach(([categorySlug, categoryData], index) => {
-    // Группируем продукты по productGroup для создания субкатегорий
-    const subcategoryGroups = new Map<string, number>();
-
-    categoryData.products.forEach((product) => {
-      const count = subcategoryGroups.get(product.productGroup) || 0;
-      subcategoryGroups.set(product.productGroup, count + 1);
-    });
-
-    const subcategories: Subcategory[] = Array.from(
-      subcategoryGroups.entries()
-    ).map(([name, count], subIndex) => ({
-      id: subIndex + 1,
-      name,
-      slug: createSlug(name), // Используем транслитерацию
-      product_count: count,
-    }));
-
+  categoriesMap.forEach((categoryData, categorySlug) => {
     categories.push({
-      id: index + 1,
+      id: ++index,
       name: categoryData.name,
       slug: categorySlug,
-      description: categoryData.description,
-      subcategories,
+      description: `Каталог ${categoryData.name.toLowerCase()}`,
+      product_count: categoryData.products.length,
     });
   });
 
-  return categories;
+  // Сортируем по названию для консистентности
+  return categories.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Получаем все товары
@@ -264,44 +196,6 @@ export function getProductsByCategoryFromJson(
   };
 }
 
-// Получаем товары по субкатегории с пагинацией
-export function getProductsBySubcategoryFromJson(
-  subcategorySlug: string,
-  page: number = 1,
-  limit: number = 50
-): {
-  products: Product[];
-  pagination: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-    offset: number;
-  };
-} {
-  const allProducts = transformJsonToProducts();
-  const filteredProducts = allProducts.filter(
-    (product) => product.subcategory_slug === subcategorySlug
-  );
-
-  // Применяем пагинацию
-  const total = filteredProducts.length;
-  const totalPages = Math.ceil(total / limit);
-  const offset = (page - 1) * limit;
-  const paginatedProducts = filteredProducts.slice(offset, offset + limit);
-
-  return {
-    products: paginatedProducts,
-    pagination: {
-      page,
-      limit,
-      total,
-      totalPages,
-      offset,
-    },
-  };
-}
-
 // Поиск товаров
 export function searchProductsFromJson(query: string): Product[] {
   const allProducts = transformJsonToProducts();
@@ -329,7 +223,6 @@ export function getCatalogStatsFromJson() {
       name: category.name,
       slug: category.slug,
       count: categoryProducts.length,
-      subcategories: category.subcategories,
     };
   });
 
@@ -346,19 +239,17 @@ export function getCategorySeoData(categorySlug: string): {
   seoDescription: string;
   seoKeywords: string;
 } | null {
-  // Находим конфигурацию категории по slug
-  const configEntry = Object.entries(CATEGORIES_CONFIG).find(
-    ([, config]) => createSlug(config.name) === categorySlug
-  );
+  const categories = getCategoriesFromJson();
+  const category = categories.find((c) => c.slug === categorySlug);
 
-  if (!configEntry) {
+  if (!category) {
     return null;
   }
 
-  const config = configEntry[1];
+  // Генерируем SEO-данные на основе названия категории
   return {
-    seoTitle: config.seoTitle,
-    seoDescription: config.seoDescription,
-    seoKeywords: config.seoKeywords,
+    seoTitle: `${category.name} в Ижевске — купить с доставкой | Абсолют Сталь`,
+    seoDescription: `${category.name}: большой выбор размеров и марок на складе в Ижевске. ${category.product_count} позиций. Доставка по Удмуртии. Звоните!`,
+    seoKeywords: `${category.name.toLowerCase()}, купить ${category.name.toLowerCase()} Ижевск, металлопрокат ${category.name.toLowerCase()}`,
   };
 }

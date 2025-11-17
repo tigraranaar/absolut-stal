@@ -1,0 +1,74 @@
+[
+  {
+    "productName": "1.6",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "25"
+  },
+  {
+    "productName": "2.8",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "35"
+  },
+  {
+    "productName": "3.5",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "40"
+  },
+  {
+    "productName": "1.2",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "16"
+  },
+  {
+    "productName": "1.2",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "20"
+  },
+  {
+    "productName": "1.2",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "25"
+  },
+  {
+    "productName": "1.4",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "25"
+  },
+  {
+    "productName": "1.6",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "25"
+  },
+  {
+    "productName": "1.8",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "32"
+  },
+  {
+    "productName": "1.8",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "32"
+  },
+  {
+    "productName": "2.0",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "40"
+  },
+  {
+    "productName": "4.0",
+    "productGroup": "ГВОЗДИ",
+    "unit": "т",
+    "длина": "120"
+  }
+]

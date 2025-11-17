@@ -1,0 +1,38 @@
+[
+  {
+    "productName": "",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "5.5"
+  },
+  {
+    "productName": "",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "6.5 ; 10"
+  },
+  {
+    "productName": "мотки",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "5.5"
+  },
+  {
+    "productName": "мотки",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "6.5"
+  },
+  {
+    "productName": "мотки",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "10"
+  },
+  {
+    "productName": "мотки",
+    "productGroup": "КАТАНКА",
+    "unit": "т",
+    "ед.изм": "12"
+  }
+]
