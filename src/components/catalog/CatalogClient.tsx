@@ -44,15 +44,14 @@ export default function CatalogClient({
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 25;
 
+  // Сохраняем исходную категорию из URL для восстановления при очистке поиска
+  const initialCategoryFromUrl = preselectedCategory;
+
   const filteredProducts = useMemo(() => {
     let filtered = initialProducts;
 
-    if (selectedCategory) {
-      filtered = filtered.filter(
-        (product) => product.category_slug === selectedCategory
-      );
-    }
-
+    // Если есть поисковый запрос, ищем по всем товарам (игнорируем категорию)
+    // Если поиска нет, фильтруем по выбранной категории
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -60,6 +59,10 @@ export default function CatalogClient({
           product.product_name.toLowerCase().includes(query) ||
           product.product_group.toLowerCase().includes(query) ||
           product.category_name.toLowerCase().includes(query)
+      );
+    } else if (selectedCategory) {
+      filtered = filtered.filter(
+        (product) => product.category_slug === selectedCategory
       );
     }
 
@@ -79,7 +82,26 @@ export default function CatalogClient({
   }, [selectedCategory, searchQuery]);
 
   const handleSearch = (query: string) => {
+    const wasSearching = searchQuery.trim().length > 0;
+    const willSearch = query.trim().length > 0;
+
     setSearchQuery(query);
+
+    // Если начинаем поиск и есть выбранная категория - очищаем категорию и обновляем URL
+    if (willSearch && !wasSearching && selectedCategory) {
+      setSelectedCategory(null);
+      window.history.replaceState(null, '', '/catalog');
+    }
+
+    // Если очищаем поиск и были на странице категории - возвращаем категорию
+    if (!willSearch && wasSearching && initialCategoryFromUrl) {
+      setSelectedCategory(initialCategoryFromUrl);
+      window.history.replaceState(
+        null,
+        '',
+        `/catalog/${initialCategoryFromUrl}`
+      );
+    }
   };
 
   const handleCategoryChange = (categorySlug: string | null) => {

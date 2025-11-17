@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import {
   getCategoriesFromJson,
-  getProductsByCategoryFromJson,
+  getAllProductsFromJson,
   getCategorySeoData,
 } from '@/lib/catalog-data';
 import CatalogClient from '@/components/catalog/CatalogClient';
@@ -40,10 +40,10 @@ export async function generateMetadata({
   // Получаем SEO-данные для категории
   const seoData = getCategorySeoData(categorySlug);
 
-  // Если есть специальные SEO-данные, используем их
-  const title = seoData
-    ? `${seoData.seoTitle} | Абсолют Сталь`
-    : `${category.name} - Каталог металлопроката | Абсолют Сталь`;
+  // Используем SEO-данные (они уже содержат название сайта)
+  const title =
+    seoData?.seoTitle ||
+    `${category.name} - Каталог металлопроката | Абсолют Сталь`;
 
   const description = seoData
     ? seoData.seoDescription
@@ -88,12 +88,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  // Получаем товары только этой категории
-  const categoryProducts = getProductsByCategoryFromJson(
-    categorySlug,
-    1,
-    10000
-  );
+  // Получаем ВСЕ товары для возможности переключения между категориями
+  const allProducts = getAllProductsFromJson();
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -128,7 +124,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       />
       <CatalogClient
         initialCategories={categories}
-        initialProducts={categoryProducts.products}
+        initialProducts={allProducts}
         preselectedCategory={categorySlug}
       />
     </>
