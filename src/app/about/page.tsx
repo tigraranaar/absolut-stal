@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import Logo from '@/components/ui/Logo';
 
 export const metadata = {
-  title: 'О компании - Абсолют Сталь | Металлопрокат в Ижевске',
+  title: 'Компания металлопрокат Ижевск - Металлобазa Ижевск | Абсолют Сталь',
   description:
-    'Узнайте больше о компании Абсолют Сталь - ведущем поставщике металлопроката в Ижевске. Наша история, преимущества и опыт работы.',
+    'Компания металлопрокат Ижевск - Абсолют Сталь. Металлобазa Ижевск с широким ассортиментом: арматура, трубы, профнастил, лист стальной, уголок, швеллер, балка. Продажа металлопроката оптом и в розницу. Наша история, преимущества и опыт работы.',
   keywords:
-    'о компании Абсолют Сталь, металлопрокат Ижевск, поставщик металла, история компании',
+    'компания металлопрокат Ижевск, металлобазa Ижевск, продажа металлопроката Ижевск, металлопрокат оптом Ижевск, о компании Абсолют Сталь, поставщик металла Ижевск, история компании, металлопрокат Ижевск',
   alternates: {
     canonical: 'https://absolut-stal.ru/about',
   },
@@ -15,9 +16,9 @@ export const metadata = {
     locale: 'ru_RU',
     url: 'https://absolut-stal.ru/about',
     siteName: 'Абсолют Сталь, Ижевск',
-    title: 'О компании - Абсолют Сталь | Металлопрокат в Ижевске',
+    title: 'Компания металлопрокат Ижевск - Металлобазa Ижевск | Абсолют Сталь',
     description:
-      'Узнайте больше о компании Абсолют Сталь - ведущем поставщике металлопроката в Ижевске. Наша история, преимущества и опыт работы.',
+      'Компания металлопрокат Ижевск - Абсолют Сталь. Металлобазa Ижевск с широким ассортиментом: арматура, трубы, профнастил, лист стальной, уголок, швеллер, балка. Продажа металлопроката оптом и в розницу. Наша история, преимущества и опыт работы.',
     images: [
       {
         url: 'https://absolut-stal.ru/images/logo.png',
@@ -31,13 +32,33 @@ export const metadata = {
 
 export default function AboutPage() {
   const companyStats = [
-    { number: '5+', label: 'Лет на рынке' },
+    { number: '8+', label: 'Лет на рынке' },
     { number: '1000+', label: 'Довольных клиентов' },
     { number: '10000+', label: 'Видов металлопроката' },
-    { number: '4', label: 'Региона обслуживания' },
+    { number: '4+', label: 'Региона обслуживания' },
   ];
 
   const values = [
+    {
+      icon: (
+        <svg
+          className="h-12 w-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 10h16M4 14h16M4 18h16"
+          />
+        </svg>
+      ),
+      title: 'Выбор',
+      description:
+        'В нашем ассортименте представлен широчайший выбор металлопроката: черный (качественный, инструментальный, специальные сплавы), цветной, нержавеющий, а также готовые металлоизделия.',
+    },
     {
       icon: (
         <svg
@@ -56,7 +77,7 @@ export default function AboutPage() {
       ),
       title: 'Качество',
       description:
-        'Мы работаем только с проверенными поставщиками и гарантируем качество каждого изделия',
+        'Мы работаем только с проверенными поставщиками и гарантируем соответствие всей нашей продукции действующим ГОСТам и ТУ. Каждая партия сопровождается необходимыми сертификатами.',
     },
     {
       icon: (
@@ -70,12 +91,13 @@ export default function AboutPage() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
           />
         </svg>
       ),
-      title: 'Скорость',
-      description: 'Быстрая обработка заказов и доставка в кратчайшие сроки',
+      title: 'Надежность',
+      description:
+        'Мы дорожим своей репутацией. Своевременные поставки, точное выполнение заказов и прозрачность сделок — наши основные принципы.',
     },
     {
       icon: (
@@ -93,65 +115,27 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: 'Команда',
+      title: 'Клиентоориентированность',
       description:
-        'Опытные специалисты готовы помочь с выбором материалов и решением любых задач',
-    },
-    {
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-          />
-        </svg>
-      ),
-      title: 'Цены',
-      description:
-        'Конкурентные цены и гибкая система скидок для постоянных клиентов',
+        'Мы находим индивидуальный подход к каждому клиенту. Наши специалисты готовы проконсультировать и помочь подобрать оптимальное решение для ваших задач.',
     },
   ];
 
-  const timeline = [
-    {
-      year: '2018',
-      title: 'Основание компании',
-      description:
-        'Компания "Абсолют Сталь" начала свою деятельность в городе Ижевске',
-    },
-    {
-      year: '2019',
-      title: 'Расширение ассортимента',
-      description: 'Добавлены новые виды металлопроката и услуги по резке',
-    },
-    {
-      year: '2020',
-      title: 'Развитие доставки',
-      description: 'Запущена служба доставки по всей Удмуртской Республике',
-    },
-    {
-      year: '2021',
-      title: 'Региональное расширение',
-      description: 'Начали обслуживать клиентов в близлежащих регионах',
-    },
-    {
-      year: '2022',
-      title: 'Современные технологии',
-      description:
-        'Внедрение новых технологий резки и улучшение качества услуг',
-    },
-    {
-      year: '2023',
-      title: 'Расширение',
-      description: 'Расширение географии поставок',
-    },
+  const activities = [
+    'Оптовая торговля металлопрокатом.',
+    'Поставка черного металлопроката: арматура, круг, уголок, швеллер, балка, лист горячекатаный и холоднокатаный, трубы различного сечения.',
+    'Поставка цветного металлопроката: алюминий, медь, латунь, бронза в виде листов, прутков, кругов и труб.',
+    'Поставка нержавеющего проката: лист, труба, уголок, круг для пищевой, химической и декоративной промышленности.',
+    'Резка металла: предлагаем услуги продольной и поперечной резки листа по вашим размерам, что позволяет оптимизировать логистику и затраты.',
+    'Доставка: мы организуем оперативную доставку заказов по городу и региону с помощью собственного или наемного транспорта.',
+  ];
+
+  const advantages = [
+    'Конкурентные цены за счет прямых контрактов с заводами-изготовителями и оптимизации логистики.',
+    'Собственные складские запасы, что позволяет отгружать продукцию в кратчайшие сроки.',
+    'Гибкая система скидок для постоянных клиентов и крупных оптовых покупателей.',
+    'Профессиональная команда менеджеров и технических специалистов с глубокими знаниями в области металлургии.',
+    'Современная материально-техническая база, включающая оборудование для точной резки металла.',
   ];
 
   return (
@@ -214,18 +198,14 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl bg-gray-100 p-8 lg:p-12">
               <div className="text-center">
-                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-yellow-500">
-                  <svg
-                    className="h-12 w-12 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                      clipRule="evenodd"
+                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full p-3">
+                  <div className="flex items-center justify-center">
+                    <Logo
+                      size="xl"
+                      showText={false}
+                      className="pointer-events-none"
                     />
-                  </svg>
+                  </div>
                 </div>
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">
                   Наша миссия
@@ -252,31 +232,61 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, index) => (
-              <div key={index} className="group text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
-                  {value.icon}
+          {/* Дополнительные ценности */}
+          <div className="mt-16">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {values.map((value, index) => (
+                <div key={index} className="group text-center">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
+                    {value.icon}
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600">{value.description}</p>
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600">{value.description}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Основные направления деятельности */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">
+              Основные направления нашей деятельности
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {activities.map((activity, index) => (
+              <div
+                key={index}
+                className="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm"
+              >
+                <div className="mb-2 flex items-start">
+                  <div className="mt-1 mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-yellow-500 text-sm font-bold text-white">
+                    {index + 1}
+                  </div>
+                  <p className="text-gray-700">{activity}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* История компании */}
-      <section className="bg-white py-20">
+      {/* Почему выбирают нас */}
+      <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              История развития
+              Почему выбирают нас?
             </h2>
             <p className="mx-auto max-w-2xl text-xl text-gray-600">
-              Путь становления компании от основания до сегодняшнего дня
+              Преимущества, которые делают нас надежным партнером
             </p>
           </div>
 
@@ -285,7 +295,7 @@ export default function AboutPage() {
             <div className="absolute left-1/2 h-full w-0.5 -translate-x-px transform bg-yellow-200"></div>
 
             <div>
-              {timeline.map((item, index) => (
+              {advantages.map((advantage, index) => (
                 <div
                   key={index}
                   className={`relative flex items-center ${
@@ -300,13 +310,7 @@ export default function AboutPage() {
                     className={`w-5/12 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
                   >
                     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-                      <div className="mb-2 text-2xl font-bold text-yellow-500">
-                        {item.year}
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600">{item.description}</p>
+                      <p className="text-gray-700">{advantage}</p>
                     </div>
                   </div>
                 </div>
@@ -316,14 +320,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Заключение */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-xl leading-relaxed text-gray-700">
+            «Абсолют Сталь» — это больше, чем просто поставщик металла. Это
+            надежный партнер, который берет на себя ответственность за
+            обеспечение вашего производства качественными материалами. Мы
+            стремимся к абсолютному качеству в сервисе и в продукте, что и
+            делает нас сильными.
+          </p>
+        </div>
+      </section>
+
       {/* CTA секция */}
       <section className="bg-yellow-500 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="mb-6 text-3xl font-bold text-gray-900">
             Готовы начать сотрудничество?
           </h2>
+          <p className="mx-auto mb-4 max-w-2xl text-xl font-semibold text-gray-900">
+            Свяжитесь с нами прямо сейчас, и убедитесь в этом сами!
+          </p>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-800">
-            Свяжитесь с нами для получения консультации и оформления заказа
+            Получите бесплатную консультацию и расчет вашего заказа!
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link href="/catalog">

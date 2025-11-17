@@ -3,11 +3,12 @@ import Link from 'next/link';
 import RussiaMap from '@/components/RussiaMap';
 
 export const metadata = {
-  title: 'Доставка и оплата - Абсолют Сталь | Металлопрокат в Ижевске',
+  title:
+    'Доставка металлопроката Ижевск - Заказать металлопрокат с доставкой | Абсолют Сталь',
   description:
-    'Условия доставки металлопроката собственным автопарком и способы оплаты. Доставка по всей Удмуртской Республике и близлежащим регионам.',
+    'Доставка металлопроката Ижевск собственным автопарком. Заказать металлопрокат с доставкой по Ижевску и Удмуртии. Доставка арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Гибкие способы оплаты, условия доставки.',
   keywords:
-    'доставка металлопроката Ижевск, доставка металла Удмуртия, оплата металлопроката, условия доставки',
+    'доставка металлопроката Ижевск, заказать металлопрокат с доставкой Ижевск, доставка металла Удмуртия, доставка арматуры Ижевск, доставка труб Ижевск, доставка профнастила Ижевск, оплата металлопроката, условия доставки, доставка металлопроката оптом Ижевск',
   alternates: {
     canonical: 'https://absolut-stal.ru/delivery',
   },
@@ -16,9 +17,10 @@ export const metadata = {
     locale: 'ru_RU',
     url: 'https://absolut-stal.ru/delivery',
     siteName: 'Абсолют Сталь, Ижевск',
-    title: 'Доставка и оплата - Абсолют Сталь | Металлопрокат в Ижевске',
+    title:
+      'Доставка металлопроката Ижевск - Заказать металлопрокат с доставкой | Абсолют Сталь',
     description:
-      'Условия доставки металлопроката собственным автопарком и способы оплаты. Доставка по всей Удмуртской Республике и близлежащим регионам.',
+      'Доставка металлопроката Ижевск собственным автопарком. Заказать металлопрокат с доставкой по Ижевску и Удмуртии. Доставка арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Гибкие способы оплаты, условия доставки.',
     images: [
       {
         url: 'https://absolut-stal.ru/images/logo.png',
@@ -31,69 +33,6 @@ export const metadata = {
 };
 
 export default function DeliveryPage() {
-  const deliveryVehicles = [
-    {
-      name: 'Газель',
-      capacity: 'до 1,5 тонн',
-      length: 'до 6м',
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: 'ГАЗон',
-      capacity: 'до 5 тонн',
-      length: 'до 6м',
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: 'МАЗ',
-      capacity: 'до 20 тонн',
-      length: 'до 13,7м',
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-    },
-  ];
-
   const paymentMethods = [
     {
       name: 'Безналичный платеж',
@@ -137,80 +76,27 @@ export default function DeliveryPage() {
 
   const deliveryFeatures = [
     {
-      icon: (
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-          />
-        </svg>
-      ),
+      emoji: '🚛',
       title: 'Собственный автопарк',
-      description: 'Полный контроль над процессом доставки',
+      description:
+        'Полный контроль над сроками и качеством перевозки, без посредников',
     },
     {
-      icon: (
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      ),
-      title: 'Быстрая доставка',
-      description: 'Доставка в день заказа при наличии товара',
+      emoji: '📏',
+      title: 'Разнообразие техники',
+      description:
+        'От манипуляторов для штучных грузов до тралов для негабаритного проката',
     },
     {
-      icon: (
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-          />
-        </svg>
-      ),
-      title: 'Манипулятор',
-      description: 'Возможна выгрузка манипулятором',
+      emoji: '🔒',
+      title: 'Профессиональное крепление',
+      description:
+        'Гарантируем безопасную транспортировку без сдвигов и повреждений',
     },
     {
-      icon: (
-        <svg
-          className="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
-      ),
-      title: 'Авиадоставка',
-      description: 'Доставка в отдаленные регионы',
+      emoji: '⏱️',
+      title: 'Четкая логистика',
+      description: 'Подача транспорта в нужное время по оптимальному маршруту',
     },
   ];
 
@@ -243,46 +129,98 @@ export default function DeliveryPage() {
         ></div>
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">Доставка</h2>
-            <p className="mx-auto max-w-3xl text-xl text-gray-200">
-              Продукция доставляется собственным парком специализированных
-              грузовых автомобилей
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              Доставка металлопроката Ижевск
+            </h2>
+            <p className="mx-auto mb-6 max-w-3xl text-xl text-gray-200">
+              Собственный автопарк — гарантия точных сроков и сохранности вашего
+              металлопроката. Доставка арматуры, труб, профнастила, листа
+              стального, уголка, швеллера, балки и другого металлопроката.
             </p>
+            <div className="mx-auto max-w-4xl">
+              <ul className="mt-6 space-y-3 text-left text-gray-200">
+                <li className="flex items-start">
+                  <span className="mr-3 text-yellow-400">•</span>
+                  <span>Наш автопарк — ваша уверенность в целости металла</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3 text-yellow-400">•</span>
+                  <span>
+                    Доставим любой металлопрокат: от прутка до балки. Своим
+                    транспортом
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3 text-yellow-400">•</span>
+                  <span>
+                    Полный контроль логистики. От склада до вашего объекта
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3 text-yellow-400">•</span>
+                  <span>Ваш металл в надежных руках и на нашей технике</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Автопарк */}
-          <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {deliveryVehicles.map((vehicle, index) => (
-              <div
-                key={index}
-                className="group rounded-2xl bg-gray-50 p-8 text-center"
-              >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full text-gray-600">
-                  {vehicle.icon}
-                </div>
-                <h3 className="mb-4 text-2xl font-bold text-gray-900">
-                  {vehicle.name}
-                </h3>
-                <div className="space-y-2 text-gray-600">
-                  <p>
-                    <span className="font-semibold">Грузоподъемность:</span>{' '}
-                    {vehicle.capacity}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Длина кузова:</span>{' '}
-                    {vehicle.length}
-                  </p>
-                </div>
+          <div className="mb-16">
+            <h3 className="mb-8 text-center text-2xl font-bold text-white">
+              Наш автопарк предназначен к перевозке металлопроката любого типа и
+              сложности:
+            </h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-2xl bg-gray-50/90 p-6 backdrop-blur-sm">
+                <div className="mb-4 text-3xl">🚛</div>
+                <h4 className="mb-3 text-lg font-bold text-gray-900">
+                  Для длинномера и негабарита
+                </h4>
+                <p className="text-gray-700">
+                  Тяжелые тралы и полуприцепы-тяжеловозы для перевозки балок,
+                  труб и двутавров любой длины
+                </p>
               </div>
-            ))}
+              <div className="rounded-2xl bg-gray-50/90 p-6 backdrop-blur-sm">
+                <div className="mb-4 text-3xl">📦</div>
+                <h4 className="mb-3 text-lg font-bold text-gray-900">
+                  Для листового проката
+                </h4>
+                <p className="text-gray-700">
+                  Платформы со стойками и ложементами, которые исключают
+                  деформацию и повреждение листов и рулонов
+                </p>
+              </div>
+              <div className="rounded-2xl bg-gray-50/90 p-6 backdrop-blur-sm">
+                <div className="mb-4 text-3xl">📋</div>
+                <h4 className="mb-3 text-lg font-bold text-gray-900">
+                  Для стандартных партий
+                </h4>
+                <p className="text-gray-700">
+                  Тентованные полуприцепы и бортовые автомобили, обеспечивающие
+                  сохранность сортового и фасонного проката
+                </p>
+              </div>
+              <div className="rounded-2xl bg-gray-50/90 p-6 backdrop-blur-sm">
+                <div className="mb-4 text-3xl">🔧</div>
+                <h4 className="mb-3 text-lg font-bold text-gray-900">
+                  Для сложной погрузки
+                </h4>
+                <p className="text-gray-700">
+                  Автомобили, оснащенные манипуляторами, для быстрого и
+                  безопасного выполнения погрузо-разгрузочных работ прямо на
+                  объекте
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Особенности доставки */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {deliveryFeatures.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-white">
-                  {feature.icon}
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-4xl backdrop-blur-sm">
+                  {feature.emoji}
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-white">
                   {feature.title}
@@ -293,6 +231,59 @@ export default function DeliveryPage() {
           </div>
         </div>
       </section>
+
+      {/* Преимущества работы с автопарком */}
+      <div className="mb-16 rounded-2xl bg-gray-50/90 p-8 backdrop-blur-sm lg:p-12">
+        <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
+          Преимущества работы с нашим автопарком:
+        </h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="flex items-start">
+            <span className="mr-4 text-2xl">✅</span>
+            <div>
+              <h4 className="mb-2 font-semibold text-gray-900">
+                Экономия времени и денег
+              </h4>
+              <p className="text-gray-700">
+                Мы оперативно подаем машину под загрузку и оптимизируем маршруты
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-4 text-2xl">✅</span>
+            <div>
+              <h4 className="mb-2 font-semibold text-gray-900">
+                Сохранность груза
+              </h4>
+              <p className="text-gray-700">
+                Наши водители-экспедиторы — опытные специалисты, которые знают
+                все нюансы крепления металла
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-4 text-2xl">✅</span>
+            <div>
+              <h4 className="mb-2 font-semibold text-gray-900">
+                Решение любых задач
+              </h4>
+              <p className="text-gray-700">
+                Мы легко подберем нужный транспорт под ваш конкретный груз, будь
+                то арматура или сложная металлоконструкция
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start">
+            <span className="mr-4 text-2xl">✅</span>
+            <div>
+              <h4 className="mb-2 font-semibold text-gray-900">Прозрачность</h4>
+              <p className="text-gray-700">
+                Вы всегда знаете, где ваш груз и когда он прибудет
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Оплата */}
       <section className="bg-gray-50 py-20">
@@ -377,7 +368,7 @@ export default function DeliveryPage() {
       <section className="bg-yellow-500 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="mb-6 text-3xl font-bold text-gray-900">
-            Нужна консультация по доставке?
+            Нужна консультация по доставке металлопроката?
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-800">
             Свяжитесь с нами для уточнения деталей доставки и расчета стоимости
