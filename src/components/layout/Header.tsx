@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 
@@ -16,6 +16,29 @@ const Header: React.FC<HeaderProps> = ({
   isScrolled = false,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Номера телефонов из страницы контактов
+  const phoneNumbers = [
+    { display: '+7 919 919-02-21', tel: '+79199190221', name: 'Дмитрий' },
+    { display: '+7 919 919-09-55', tel: '+79199190955', name: 'Григорий' },
+    { display: '+7 919 919-03-36', tel: '+79199190336', name: 'Алексей' },
+    { display: '+7 919 919-13-37', tel: '+79199191337', name: 'Егор' },
+    { display: '+7 919 905 17-75', tel: '+79199051775', name: 'Илья' },
+  ];
+
+  const [currentPhoneIndex, setCurrentPhoneIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhoneIndex(
+        (prevIndex) => (prevIndex + 1) % phoneNumbers.length
+      );
+    }, 900000); // Меняем каждые 15 минут
+
+    return () => clearInterval(interval);
+  }, [phoneNumbers.length]);
+
+  const currentPhone = phoneNumbers[currentPhoneIndex];
 
   const navigation = [
     { name: 'Каталог', href: '/catalog' },
@@ -82,12 +105,13 @@ const Header: React.FC<HeaderProps> = ({
             </button>
             <div className="flex flex-col text-right">
               <a
-                href="tel:+73412566822"
+                href={`tel:${currentPhone.tel}`}
                 className={`text-sm font-medium transition-colors hover:text-yellow-600 ${
                   isTransparent && !isScrolled ? 'text-white' : 'text-gray-700'
                 }`}
+                key={currentPhoneIndex}
               >
-                +73412566822
+                {currentPhone.display}
               </a>
               <a
                 href="mailto:abst18@bk.ru"
@@ -162,10 +186,11 @@ const Header: React.FC<HeaderProps> = ({
                 </button>
                 <div className="space-y-1 rounded-md bg-gray-50 px-4 py-3">
                   <a
-                    href="tel:+7(3412)123-456"
+                    href={`tel:${currentPhone.tel}`}
                     className="block text-sm font-medium text-gray-700 hover:text-yellow-600"
+                    key={currentPhoneIndex}
                   >
-                    +7 (3412) 566822
+                    {currentPhone.display}
                   </a>
                   <a
                     href="mailto:abst18@bk.ru"

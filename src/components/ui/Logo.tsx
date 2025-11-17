@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   showText?: boolean;
   className?: string;
   textColor?: 'dark' | 'white';
@@ -19,6 +19,7 @@ const Logo: React.FC<LogoProps> = ({
     sm: { logo: 32, text: 'text-sm' },
     md: { logo: 48, text: 'text-lg' },
     lg: { logo: 56, text: 'text-2xl' },
+    xl: { logo: 72, text: 'text-3xl' },
   };
 
   const currentSize = sizes[size];

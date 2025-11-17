@@ -87,11 +87,15 @@ const AboutSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl">
-            О компании <span className="text-yellow-500">Абсолют Сталь</span>
+            Компания металлопрокат{' '}
+            <span className="text-yellow-500">Ижевск</span>
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-gray-600">
-            Мы являемся ведущей компанией по металлопрокату в городе Ижевске,
-            предоставляющей качественные материалы и профессиональные услуги для
+            Мы являемся ведущей компанией по металлопрокату в городе Ижевске.
+            Металлобазa Ижевск с широким ассортиментом: арматура, трубы,
+            профнастил, лист стальной, уголок, швеллер, балка, круг стальной,
+            проволока, сетка, катанка, квадрат, шестигранник, пруток.
+            Предоставляем качественные материалы и профессиональные услуги для
             строительства и промышленности.
           </p>
         </div>
@@ -153,6 +157,37 @@ const AboutSection: React.FC = () => {
               <p className="text-sm text-gray-600">
                 Татарстан, Кировская область, Пермский край
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Дополнительная SEO-информация */}
+        <div className="mt-12 rounded-2xl bg-yellow-50 p-8 lg:p-12">
+          <div className="text-center">
+            <h3 className="mb-4 text-2xl font-bold text-gray-900">
+              Прайс-лист на металлопрокат Ижевск 2024
+            </h3>
+            <p className="mx-auto mb-6 max-w-3xl text-gray-700">
+              Актуальные цены на металлопрокат в Ижевске. Скачайте прайс-лист на
+              металлопрокат Ижевск 2024 с ценами на арматуру, трубы, профнастил,
+              лист стальной, уголок, швеллер, балку, круг стальной, проволоку,
+              сетку, катанку, квадрат, шестигранник, пруток. Металлоконструкции
+              на заказ Ижевск.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href="/price-list.xlsx"
+                download="Прайс-лист-металлопрокат-Ижевск-2024.xlsx"
+              >
+                <button className="rounded-lg bg-yellow-500 px-8 py-3 font-medium text-gray-900 transition-colors hover:bg-yellow-600">
+                  Скачать прайс-лист 2024
+                </button>
+              </a>
+              <Link href="/catalog">
+                <button className="rounded-lg border-2 border-yellow-500 bg-white px-8 py-3 font-medium text-gray-900 transition-colors hover:bg-yellow-50">
+                  Посмотреть каталог
+                </button>
+              </Link>
             </div>
           </div>
         </div>
