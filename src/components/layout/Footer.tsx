@@ -68,6 +68,9 @@ const Footer: React.FC = () => {
               <Logo size="lg" showText={false} />
               <span className="ml-3 text-lg font-bold">Абсолют Сталь</span>
             </div>
+            <div className="mb-4 flex flex-col items-center justify-center md:flex-row md:justify-start md:space-x-4">
+              Конструкционные, инструментальные, специальные марки стали.
+            </div>
             <p className="mx-auto mb-4 max-w-md text-gray-300 md:mx-0">
               Компания по металлопрокату в городе Ижевске. Широкий ассортимент,
               качественные материалы, резка и доставка по всей Удмуртской
