@@ -333,6 +333,77 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Вакансии */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">Вакансии</h2>
+            <p className="mx-auto max-w-2xl text-xl text-gray-600">
+              Присоединяйтесь к команде &quot;Абсолют Сталь&quot;! Мы ищем
+              профессионалов, готовых развиваться вместе с нами.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-gray-900">
+                Менеджер по продажам
+              </h3>
+              <p className="mb-4 text-gray-600">
+                Работа с клиентской базой, консультирование по ассортименту
+                металлопроката, формирование коммерческих предложений.
+              </p>
+              <a
+                href="mailto:abst18@bk.ru?subject=Резюме на вакансию: Менеджер по продажам"
+                className="inline-block rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
+              >
+                Отправить резюме
+              </a>
+            </div>
+
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Юрист</h3>
+              <p className="mb-4 text-gray-600">
+                Правовое сопровождение деятельности компании, подготовка и
+                проверка договоров, консультирование по правовым вопросам.
+              </p>
+              <a
+                href="mailto:abst18@bk.ru?subject=Резюме на вакансию: Юрист"
+                className="inline-block rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
+              >
+                Отправить резюме
+              </a>
+            </div>
+
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Логист</h3>
+              <p className="mb-4 text-gray-600">
+                Планирование и организация доставки металлопроката, координация
+                работы транспорта, оптимизация логистических маршрутов.
+              </p>
+              <a
+                href="mailto:abst18@bk.ru?subject=Резюме на вакансию: Логист"
+                className="inline-block rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-yellow-600"
+              >
+                Отправить резюме
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-600">
+              Отправляйте резюме на почту:{' '}
+              <a
+                href="mailto:abst18@bk.ru"
+                className="font-medium text-yellow-600 transition-colors hover:text-yellow-700"
+              >
+                abst18@bk.ru
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA секция */}
       <section className="bg-yellow-500 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
