@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { getAllGroups, getCategoryGroup } from '@/lib/category-groups';
 
 interface Category {
   id: number;
@@ -23,7 +24,91 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   onCategoryChange,
   className = '',
 }) => {
+  const groups = getAllGroups();
+
+  // Распределяем категории по группам
+  const categoriesByGroup = useMemo(() => {
+    const map: Record<string, Category[]> = {};
+
+    categories.forEach((category) => {
+      const groupId = getCategoryGroup(category.name);
+      if (!map[groupId]) {
+        map[groupId] = [];
+      }
+      map[groupId].push(category);
+    });
+
+    // Сортируем категории внутри каждой группы
+    Object.keys(map).forEach((groupId) => {
+      map[groupId].sort((a, b) => a.name.localeCompare(b.name));
+    });
+
+    return map;
+  }, [categories]);
+
+  // Инициализируем expandedGroups на основе selectedCategory
+  // Используем функцию инициализации для useState, чтобы избежать проблем с гидратацией
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => {
+    const initialSet = new Set<string>();
+    if (selectedCategory) {
+      const category = categories.find((c) => c.slug === selectedCategory);
+      if (category) {
+        const groupId = getCategoryGroup(category.name);
+        initialSet.add(groupId);
+      }
+    }
+    return initialSet;
+  });
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Обновляем expandedGroups при изменении selectedCategory
+  useEffect(() => {
+    if (selectedCategory) {
+      const category = categories.find((c) => c.slug === selectedCategory);
+      if (category) {
+        const groupId = getCategoryGroup(category.name);
+        setExpandedGroups((prev) => {
+          if (!prev.has(groupId)) {
+            return new Set(prev).add(groupId);
+          }
+          return prev;
+        });
+      }
+    }
+  }, [selectedCategory, categories]);
+
+  // Фильтруем категории по поисковому запросу
+  const filteredCategoriesByGroup = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return categoriesByGroup;
+    }
+
+    const query = searchQuery.toLowerCase();
+    const filtered: Record<string, Category[]> = {};
+
+    Object.keys(categoriesByGroup).forEach((groupId) => {
+      const filteredCats = categoriesByGroup[groupId].filter((category) =>
+        category.name.toLowerCase().includes(query)
+      );
+      if (filteredCats.length > 0) {
+        filtered[groupId] = filteredCats;
+      }
+    });
+
+    return filtered;
+  }, [categoriesByGroup, searchQuery]);
+
+  const toggleGroup = (groupId: string) => {
+    setExpandedGroups((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(groupId)) {
+        newSet.delete(groupId);
+      } else {
+        newSet.add(groupId);
+      }
+      return newSet;
+    });
+  };
 
   const handleCategoryClick = (categorySlug: string) => {
     if (selectedCategory === categorySlug) {
@@ -31,41 +116,15 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
     }
 
     onCategoryChange(categorySlug);
-    // Обновляем URL без скролла
     window.history.pushState(null, '', `/catalog/${categorySlug}`);
   };
 
-  // Фильтруем категории по поисковому запросу
-  const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return categories;
-    }
-
-    const query = searchQuery.toLowerCase();
-    return categories.filter((category) =>
-      category.name.toLowerCase().includes(query)
-    );
-  }, [categories, searchQuery]);
-
-  // Группируем категории по первой букве
-  const groupedCategories = useMemo(() => {
-    const groups: Record<string, Category[]> = {};
-
-    filteredCategories.forEach((category) => {
-      const firstLetter = category.name.charAt(0).toUpperCase();
-      if (!groups[firstLetter]) {
-        groups[firstLetter] = [];
-      }
-      groups[firstLetter].push(category);
-    });
-
-    return Object.keys(groups)
-      .sort()
-      .map((letter) => ({
-        letter,
-        categories: groups[letter].sort((a, b) => a.name.localeCompare(b.name)),
-      }));
-  }, [filteredCategories]);
+  const handleAllCategoriesClick = () => {
+    onCategoryChange(null);
+    window.history.pushState(null, '', '/catalog');
+    setSearchQuery('');
+    setExpandedGroups(new Set());
+  };
 
   return (
     <div className={`space-y-4 ${className}`}>
@@ -119,11 +178,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
       {/* Кнопка "Все категории" */}
       <button
-        onClick={() => {
-          onCategoryChange(null);
-          window.history.pushState(null, '', '/catalog');
-          setSearchQuery('');
-        }}
+        onClick={handleAllCategoriesClick}
         className={`flex w-full items-center rounded-lg border px-3 py-2 text-sm transition-all duration-200 ${
           selectedCategory === null
             ? 'border-yellow-500 bg-yellow-50 font-medium text-gray-900'
@@ -144,52 +199,77 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
           />
         </svg>
         <span>Все категории</span>
-        <span className="ml-auto text-xs text-gray-500">
+        {/* <span className="ml-auto text-xs text-gray-500">
           {categories.reduce((sum, cat) => sum + cat.product_count, 0)}
-        </span>
+        </span> */}
       </button>
 
-      {/* Список категорий с прокруткой и группировкой */}
+      {/* Список групп с аккордеоном */}
       <div className="max-h-[calc(100vh-300px)] overflow-y-auto rounded-lg border border-gray-200 bg-white">
-        {groupedCategories.length === 0 ? (
-          <div className="px-4 py-8 text-center text-sm text-gray-500">
-            Категории не найдены
-          </div>
-        ) : (
-          <div className="divide-y divide-gray-100">
-            {groupedCategories.map(
-              ({ letter, categories: letterCategories }) => (
-                <div key={letter}>
-                  {/* Заголовок группы */}
-                  <div className="sticky top-0 z-10 bg-gray-50 px-3 py-1.5">
-                    <span className="text-xs font-semibold text-gray-600 uppercase">
-                      {letter}
-                    </span>
-                  </div>
+        {groups.map((group) => {
+          const groupCats = filteredCategoriesByGroup[group.id] || [];
+          if (groupCats.length === 0) {
+            return null; // Пропускаем группы без категорий
+          }
 
-                  {/* Категории в группе */}
-                  {letterCategories.map((category) => {
+          const isExpanded = expandedGroups.has(group.id);
+
+          return (
+            <div
+              key={group.id}
+              className="border-b border-gray-100 last:border-b-0"
+            >
+              {/* Кнопка группы */}
+              <button
+                onClick={() => toggleGroup(group.id)}
+                className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm transition-colors hover:bg-gray-50"
+              >
+                <div className="flex items-center gap-2">
+                  <svg
+                    className={`h-4 w-4 text-gray-500 transition-transform ${
+                      isExpanded ? 'rotate-90' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                  <span className="font-medium text-gray-900">
+                    {group.name}
+                  </span>
+                </div>
+                {/* <span className="text-xs text-gray-500">{productCount}</span> */}
+              </button>
+
+              {/* Категории группы (выпадающий список) */}
+              {isExpanded && (
+                <div className="bg-gray-50">
+                  {groupCats.map((category) => {
                     const isSelected = selectedCategory === category.slug;
 
                     return (
                       <button
                         key={category.id}
                         onClick={() => handleCategoryClick(category.slug)}
-                        className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm transition-colors hover:bg-gray-50 ${
+                        className={`flex w-full items-center justify-between px-6 py-2 text-left text-sm transition-colors hover:bg-gray-100 ${
                           isSelected
-                            ? 'bg-yellow-50 text-gray-900'
+                            ? 'bg-yellow-50 font-medium text-gray-900'
                             : 'text-gray-700'
                         }`}
                       >
                         <div className="min-w-0 flex-1">
-                          <span
-                            className={`block truncate ${isSelected ? 'font-medium' : ''}`}
-                          >
+                          <span className="block truncate">
                             {category.name}
                           </span>
-                          <span className="text-xs text-gray-500">
+                          {/* <span className="text-xs text-gray-500">
                             {category.product_count}
-                          </span>
+                          </span> */}
                         </div>
 
                         {isSelected && (
@@ -211,10 +291,10 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                     );
                   })}
                 </div>
-              )
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
