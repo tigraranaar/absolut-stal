@@ -10,7 +10,6 @@ interface CategoryPageProps {
   }>;
 }
 
-// ✅ SSG: Генерируем статические страницы для всех категорий при билде
 export async function generateStaticParams() {
   const categories = getCategoriesFromJson();
 
@@ -19,7 +18,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ Динамические meta-теги для каждой категории
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
@@ -33,10 +31,8 @@ export async function generateMetadata({
     };
   }
 
-  // Получаем SEO-данные для категории
   const seoData = getCategorySeoData(categorySlug);
 
-  // Используем SEO-данные (они уже содержат название сайта)
   const title =
     seoData?.seoTitle ||
     `${category.name} - Каталог металлопроката | Абсолют Сталь`;
@@ -54,12 +50,12 @@ export async function generateMetadata({
     description,
     keywords,
     alternates: {
-      canonical: `https://absolut-stal.ru/catalog/${categorySlug}`,
+      canonical: `https://absolut-stal.ru/catalog/${categorySlug}/`,
     },
     openGraph: {
       type: 'website',
       locale: 'ru_RU',
-      url: `https://absolut-stal.ru/catalog/${categorySlug}`,
+      url: `https://absolut-stal.ru/catalog/${categorySlug}/`,
       siteName: 'Абсолют Сталь, Ижевск',
       title,
       description,
@@ -95,19 +91,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Главная',
-        item: 'https://absolut-stal.ru',
+        item: 'https://absolut-stal.ru/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Каталог',
-        item: 'https://absolut-stal.ru/catalog',
+        item: 'https://absolut-stal.ru/catalog/',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: category.name,
-        item: `https://absolut-stal.ru/catalog/${categorySlug}`,
+        item: `https://absolut-stal.ru/catalog/${categorySlug}/`,
       },
     ],
   };

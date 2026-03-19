@@ -72,6 +72,29 @@ export default function CatalogClient({
 
   // Сохраняем исходную категорию из URL для восстановления при очистке поиска
   const initialCategoryFromUrl = preselectedCategory;
+  const isSearching = searchQuery.trim().length > 0;
+
+  const selectedCategoryInfo = useMemo(() => {
+    if (!selectedCategory) return null;
+    return initialCategories.find((c) => c.slug === selectedCategory) || null;
+  }, [initialCategories, selectedCategory]);
+
+  const heroTitle = useMemo(() => {
+    if (isSearching) return 'Поиск по каталогу';
+    if (selectedCategoryInfo?.name)
+      return `${selectedCategoryInfo.name} в Ижевске`;
+    return 'Каталог металлопроката в Ижевске';
+  }, [isSearching, selectedCategoryInfo?.name]);
+
+  const heroDescription = useMemo(() => {
+    if (isSearching) {
+      return `Результаты поиска по запросу «${searchQuery.trim()}»`;
+    }
+    if (selectedCategoryInfo?.name) {
+      return `Купить ${selectedCategoryInfo.name.toLowerCase()} с доставкой по Ижевску и Удмуртии. Резка в размер, консультации и подбор.`;
+    }
+    return 'Широкий ассортимент металлопроката, нержавеющей стали и цветных металлов';
+  }, [isSearching, searchQuery, selectedCategoryInfo?.name]);
 
   const filteredProducts = useMemo(() => {
     if (loading || products.length === 0) {
@@ -120,7 +143,7 @@ export default function CatalogClient({
     // Если начинаем поиск и есть выбранная категория - очищаем категорию и обновляем URL
     if (willSearch && !wasSearching && selectedCategory) {
       setSelectedCategory(null);
-      window.history.replaceState(null, '', '/catalog');
+      window.history.replaceState(null, '', '/catalog/');
     }
 
     // Если очищаем поиск и были на странице категории - возвращаем категорию
@@ -129,7 +152,7 @@ export default function CatalogClient({
       window.history.replaceState(
         null,
         '',
-        `/catalog/${initialCategoryFromUrl}`
+        `/catalog/${initialCategoryFromUrl}/`
       );
     }
   };
@@ -150,16 +173,21 @@ export default function CatalogClient({
     }
   };
 
-  const getCurrentLevelName = () => {
+  const currentLevelName = useMemo(() => {
     if (selectedCategory) {
       return (
         initialCategories.find((c) => c.slug === selectedCategory)?.name ||
         'Категория'
       );
-    } else {
-      return 'Все товары';
     }
-  };
+    return 'Все товары';
+  }, [initialCategories, selectedCategory]);
+
+  const listTitle = useMemo(() => {
+    if (isSearching) return 'Результаты поиска';
+    if (selectedCategoryInfo?.name) return 'Товары и характеристики';
+    return currentLevelName;
+  }, [currentLevelName, isSearching, selectedCategoryInfo?.name]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -167,11 +195,10 @@ export default function CatalogClient({
       <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-6xl">
-            Каталог товаров
+            {heroTitle}
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
-            Широкий ассортимент металлопроката, нержавеющей стали и цветных
-            металлов
+            {heroDescription}
           </p>
 
           {/* Поиск */}
@@ -204,11 +231,21 @@ export default function CatalogClient({
               <div className="mb-8 flex items-center justify-between">
                 <div>
                   <h2 className="mb-2 text-2xl font-bold text-gray-900">
-                    {getCurrentLevelName()}
+                    {listTitle}
                   </h2>
                   <p className="text-gray-600">
                     Найдено {filteredProducts.length} товаров
                   </p>
+                  {!isSearching && selectedCategoryInfo?.name && (
+                    <p className="mt-2 max-w-3xl text-sm text-gray-600">
+                      Категория:{' '}
+                      <span className="font-medium">
+                        {selectedCategoryInfo.name}
+                      </span>
+                      . Уточните наличие и стоимость по телефону — поможем
+                      подобрать размеры/марки и организуем доставку.
+                    </p>
+                  )}
                 </div>
 
                 {/* Переключатель вида */}

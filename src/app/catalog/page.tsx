@@ -10,12 +10,12 @@ export const metadata = {
   keywords:
     'каталог металлопроката Ижевск, купить металлопрокат в Ижевске, металлопрокат цена Ижевск, прайс-лист на металлопрокат Ижевск 2024, арматура Ижевск, трубы Ижевск, профнастил Ижевск, лист стальной Ижевск, уголок Ижевск, швеллер Ижевск, балка Ижевск, круг стальной Ижевск, проволока Ижевск, сетка Ижевск, катанка Ижевск, квадрат Ижевск, шестигранник Ижевск, пруток Ижевск, металлопрокат с доставкой, резка металла Ижевск',
   alternates: {
-    canonical: 'https://absolut-stal.ru/catalog',
+    canonical: 'https://absolut-stal.ru/catalog/',
   },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://absolut-stal.ru/catalog',
+    url: 'https://absolut-stal.ru/catalog/',
     siteName: 'Абсолют Сталь, Ижевск',
     title:
       'Каталог металлопроката Ижевск — более 10 000 позиций | Купить металлопрокат в Ижевске',
@@ -45,13 +45,13 @@ export default function CatalogPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Главная',
-        item: 'https://absolut-stal.ru',
+        item: 'https://absolut-stal.ru/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Каталог',
-        item: 'https://absolut-stal.ru/catalog',
+        item: 'https://absolut-stal.ru/catalog/',
       },
     ],
   };
