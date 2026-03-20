@@ -7,9 +7,9 @@ export default function RussiaMap() {
   const [tooltipText, setTooltipText] = useState<string>('');
 
   const deliveryRegions = [
-    'Удмуртская республика',
-    'Кировская область',
     'Республика Татарстан',
+    'Кировская область',
+    'Удмуртская Республика',
     'Пермский край',
   ];
 

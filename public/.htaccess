@@ -4,9 +4,14 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  RewriteCond %{HTTP_HOST} !^absolut-stal\.ru$ [NC]
-  RewriteCond %{HTTP_HOST} !^www\.absolut-stal\.ru$ [NC]
-  RewriteRule ^(.*)$ https://absolut-stal.ru/$1 [R=301,L]
+# --- РЕДИРЕКТ НА ОСНОВНОЙ КАЗАНСКИЙ ДОМЕН ---
+  # Если зашли НЕ на xn--80aaatiqmafj1d1g.xn--p1ai (казаньметалл.рф)
+  RewriteCond %{HTTP_HOST} !^xn--80aaatiqmafj1d1g\.xn--p1ai$ [NC]
+  # И если зашли НЕ на его www-версию
+  RewriteCond %{HTTP_HOST} !^www\.xn--80aaatiqmafj1d1g\.xn--p1ai$ [NC]
+  # Перекидываем всех на https://казаньметалл.рф
+  RewriteRule ^(.*)$ https://xn--80aaatiqmafj1d1g.xn--p1ai/$1 [R=301,L]
+  # --------------------------------------------
 
   # Если запрашивается /catalog/, перенаправляем на catalog.html
   RewriteRule ^catalog/?$ /catalog.html [L]

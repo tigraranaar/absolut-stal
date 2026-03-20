@@ -21,11 +21,11 @@ const HeroSection: React.FC = () => {
             <h1 className="mb-6 text-4xl leading-tight font-bold text-white lg:text-6xl">
               <span className="text-yellow-400">Абсолют Сталь</span>
               <br />
-              Металлопрокат в Ижевске
+              Металлопрокат в Казани
             </h1>
             <p className="mb-8 text-xl leading-relaxed text-gray-200">
               Широкий ассортимент металлопроката, профессиональная резка,
-              быстрая доставка по всей Удмуртской Республике и близлежащим
+              быстрая доставка по всей Республике Татарстан и близлежащим
               регионам.
             </p>
           </div>

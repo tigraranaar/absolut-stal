@@ -40,7 +40,7 @@ const AboutSection: React.FC = () => {
       ),
       title: 'Быстрая доставка',
       description:
-        'Доставка по всей Удмуртской Республике и близлежащим регионам',
+        'Доставка по всей Республике Татарстан и близлежащим регионам',
     },
     {
       icon: (
@@ -90,7 +90,7 @@ const AboutSection: React.FC = () => {
             О компании <span className="text-yellow-500">Абсолют Сталь</span>
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-gray-600">
-            Мы являемся ведущей компанией по металлопрокату в городе Ижевске,
+            Мы являемся ведущей компанией по металлопрокату в городе Казани,
             предоставляющей качественные материалы и профессиональные услуги для
             строительства и промышленности.
           </p>
@@ -126,10 +126,10 @@ const AboutSection: React.FC = () => {
             <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center">
                 <div className="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
-                <h4 className="font-semibold text-gray-900">Ижевск</h4>
+                <h4 className="font-semibold text-gray-900">Казань</h4>
               </div>
               <p className="text-sm text-gray-600">
-                Столица Удмуртской Республики
+                Столица Республики Татарстан
               </p>
             </div>
 
@@ -137,7 +137,7 @@ const AboutSection: React.FC = () => {
               <div className="mb-3 flex items-center">
                 <div className="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
                 <h4 className="font-semibold text-gray-900">
-                  Удмуртская Республика
+                  Республика Татарстан
                 </h4>
               </div>
               <p className="text-sm text-gray-600">Весь регион</p>

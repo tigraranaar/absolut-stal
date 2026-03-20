@@ -248,8 +248,8 @@ export function getCategorySeoData(categorySlug: string): {
 
   // Генерируем SEO-данные на основе названия категории
   return {
-    seoTitle: `${category.name} в Ижевске — купить с доставкой | Абсолют Сталь`,
-    seoDescription: `${category.name}: большой выбор размеров и марок на складе в Ижевске. ${category.product_count} позиций. Доставка по Удмуртии. Звоните!`,
-    seoKeywords: `${category.name.toLowerCase()}, купить ${category.name.toLowerCase()} Ижевск, металлопрокат ${category.name.toLowerCase()}`,
+    seoTitle: `${category.name} в Казани — купить с доставкой | Абсолют Сталь`,
+    seoDescription: `${category.name}: большой выбор размеров и марок на складе в Казани. ${category.product_count} позиций. Доставка по Татарстану. Звоните!`,
+    seoKeywords: `${category.name.toLowerCase()}, купить ${category.name.toLowerCase()} Казань, металлопрокат ${category.name.toLowerCase()}`,
   };
 }

@@ -39,11 +39,11 @@ export async function generateMetadata({
 
   const description = seoData
     ? seoData.seoDescription
-    : `${category.description}. Широкий выбор ${category.name.toLowerCase()} в Ижевске. Доставка по Удмуртии.`;
+    : `${category.description}. Широкий выбор ${category.name.toLowerCase()} в Казани. Доставка по Татарстану.`;
 
   const keywords = seoData
     ? seoData.seoKeywords
-    : `${category.name.toLowerCase()}, металлопрокат ${category.name.toLowerCase()}, купить ${category.name.toLowerCase()} Ижевск`;
+    : `${category.name.toLowerCase()}, металлопрокат ${category.name.toLowerCase()}, купить ${category.name.toLowerCase()} Казань`;
 
   return {
     title,
@@ -56,7 +56,7 @@ export async function generateMetadata({
       type: 'website',
       locale: 'ru_RU',
       url: `https://absolut-stal.ru/catalog/${categorySlug}/`,
-      siteName: 'Абсолют Сталь, Ижевск',
+      siteName: 'Абсолют Сталь, Казань',
       title,
       description,
       images: [

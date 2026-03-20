@@ -82,8 +82,8 @@ export default function CatalogClient({
   const heroTitle = useMemo(() => {
     if (isSearching) return 'Поиск по каталогу';
     if (selectedCategoryInfo?.name)
-      return `${selectedCategoryInfo.name} в Ижевске`;
-    return 'Каталог металлопроката в Ижевске';
+      return `${selectedCategoryInfo.name} в Казани`;
+    return 'Каталог металлопроката в Казани';
   }, [isSearching, selectedCategoryInfo?.name]);
 
   const heroDescription = useMemo(() => {
@@ -91,7 +91,7 @@ export default function CatalogClient({
       return `Результаты поиска по запросу «${searchQuery.trim()}»`;
     }
     if (selectedCategoryInfo?.name) {
-      return `Купить ${selectedCategoryInfo.name.toLowerCase()} с доставкой по Ижевску и Удмуртии. Резка в размер, консультации и подбор.`;
+      return `Купить ${selectedCategoryInfo.name.toLowerCase()} с доставкой по Казани и Татарстану. Резка в размер, консультации и подбор.`;
     }
     return 'Широкий ассортимент металлопроката, нержавеющей стали и цветных металлов';
   }, [isSearching, searchQuery, selectedCategoryInfo?.name]);

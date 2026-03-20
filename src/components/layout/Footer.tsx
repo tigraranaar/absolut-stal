@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Контакты */}
-          <div className="text-center md:text-left">
+          {/* <div className="text-center md:text-left">
             <h3 className="mb-4 text-lg font-semibold text-yellow-500">
               Контакты
             </h3>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               <li>Сб: 9:00-14:00 (МСК)</li>
               <li>Вс: Выходной</li>
             </ul>
-          </div>
+          </div> */}
 
           {/* О компании */}
           <div className="col-span-1 text-center md:col-span-2 md:text-left">
@@ -72,9 +72,9 @@ const Footer: React.FC = () => {
               Конструкционные, инструментальные, специальные марки стали.
             </div>
             <p className="mx-auto mb-4 max-w-md text-gray-300 md:mx-0">
-              Компания по металлопрокату в городе Ижевске. Широкий ассортимент,
-              качественные материалы, резка и доставка по всей Удмуртской
-              Республике и близлежащим регионам.
+              Компания по металлопрокату в городе Казани. Широкий ассортимент,
+              качественные материалы, резка и доставка по всей Республике
+              Татарстан и близлежащим регионам.
             </p>
             <div className="flex flex-col items-center justify-center md:flex-row md:justify-start md:space-x-4">
               <span className="font-medium text-yellow-500">Телефон:</span>

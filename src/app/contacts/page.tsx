@@ -1,11 +1,11 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Контакты - Металлопрокат Ижевск | Абсолют Сталь',
+  title: 'Контакты - Металлопрокат Казань | Абсолют Сталь',
   description:
-    'Контакты металлопроката Ижевск. Свяжитесь с нами для заказа арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Телефоны отдела продаж, адрес металлобазa Ижевск, реквизиты компании Абсолют Сталь.',
+    'Контакты металлопроката Казань. Свяжитесь с нами для заказа арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Телефоны отдела продаж, адрес металлобазa Казань, реквизиты компании Абсолют Сталь.',
   keywords:
-    'контакты металлопрокат Ижевск, контакты Абсолют Сталь, металлопрокат Ижевск контакты, телефон металлопроката Ижевск, адрес металлобазa Ижевск, адрес склада металла Ижевск, купить металлопрокат в Ижевске',
+    'контакты металлопрокат Казань, контакты Абсолют Сталь, металлопрокат Казань контакты, телефон металлопроката Казань, адрес металлобазa Казань, адрес склада металла Казань, купить металлопрокат в Казани',
   alternates: {
     canonical: 'https://absolut-stal.ru/contacts',
   },
@@ -13,10 +13,10 @@ export const metadata = {
     type: 'website',
     locale: 'ru_RU',
     url: 'https://absolut-stal.ru/contacts',
-    siteName: 'Абсолют Сталь, Ижевск',
-    title: 'Контакты - Металлопрокат Ижевск | Абсолют Сталь',
+    siteName: 'Абсолют Сталь, Казань',
+    title: 'Контакты - Металлопрокат Казань | Абсолют Сталь',
     description:
-      'Контакты металлопроката Ижевск. Свяжитесь с нами для заказа арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Телефоны отдела продаж, адрес металлобазa Ижевск, реквизиты компании Абсолют Сталь.',
+      'Контакты металлопроката Казань. Свяжитесь с нами для заказа арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Телефоны отдела продаж, адрес металлобазa Казань, реквизиты компании Абсолют Сталь.',
     images: [
       {
         url: 'https://absolut-stal.ru/images/logo.png',
@@ -105,7 +105,7 @@ export default function ContactsPage() {
       </section>
 
       {/* Контактная информация */}
-      <section className="bg-gray-50 py-20">
+      {/* <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
@@ -151,10 +151,10 @@ export default function ContactsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Карта */}
-      <section className="bg-white py-20">
+      {/* <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
@@ -166,7 +166,6 @@ export default function ContactsPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 rounded-2xl border border-gray-200 shadow-sm lg:grid-cols-2">
-            {/* Контактная информация - левый блок */}
             <div className="bg-white p-8">
               <h3 className="mb-6 text-2xl font-bold text-gray-900">
                 {branches[0].name}
@@ -273,7 +272,6 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            {/* Карта - правый блок */}
             <div className="bg-white p-8">
               <h3 className="mb-6 text-2xl font-bold text-gray-900">
                 Расположение на карте
@@ -289,7 +287,7 @@ export default function ContactsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
