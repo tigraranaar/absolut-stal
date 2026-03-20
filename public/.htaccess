@@ -4,6 +4,11 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Редирект для ижевскметалл.рф и ижевскметалл18.рф
+  RewriteCond %{HTTP_HOST} ^(www\.)?xn--80adibclrkag7cp\.xn--p1ai$ [OR]
+  RewriteCond %{HTTP_HOST} ^(www\.)?xn--80adibclrkag7cp18\.xn--p1ai$
+  RewriteRule ^(.*)$ https://absolut-stal.ru/$1 [R=301,L]
+
   # Если запрашивается /catalog/, перенаправляем на catalog.html
   RewriteRule ^catalog/?$ /catalog.html [L]
 
