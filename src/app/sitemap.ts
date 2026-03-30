@@ -7,34 +7,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://absolut-stal.ru';
   const categories = getCategoriesFromJson();
 
+  const withTrailingSlash = (url: string) =>
+    url.endsWith('/') ? url : `${url}/`;
+
   // Статические страницы
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: withTrailingSlash(baseUrl),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/catalog`,
+      url: withTrailingSlash(`${baseUrl}/catalog`),
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/about`,
+      url: withTrailingSlash(`${baseUrl}/about`),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contacts`,
+      url: withTrailingSlash(`${baseUrl}/contacts`),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/delivery`,
+      url: withTrailingSlash(`${baseUrl}/delivery`),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -43,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Страницы категорий
   const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
-    url: `${baseUrl}/catalog/${category.slug}`,
+    url: withTrailingSlash(`${baseUrl}/catalog/${category.slug}`),
     lastModified: new Date(),
     changeFrequency: 'daily',
     priority: 0.8,
