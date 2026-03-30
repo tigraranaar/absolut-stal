@@ -116,12 +116,12 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
     }
 
     onCategoryChange(categorySlug);
-    window.history.pushState(null, '', `/catalog/${categorySlug}/`);
+    window.history.pushState(null, '', `/catalog/${categorySlug}`);
   };
 
   const handleAllCategoriesClick = () => {
     onCategoryChange(null);
-    window.history.pushState(null, '', '/catalog/');
+    window.history.pushState(null, '', '/catalog');
     setSearchQuery('');
     setExpandedGroups(new Set());
   };
