@@ -56,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <GoogleTagManager gtmId="GTM-56M42HM" />
+      <GoogleTagManager gtmId="GTM-W8CGQ84Z" />
       <body className={inter.className} suppressHydrationWarning>
         <div className="flex min-h-screen flex-col">
           <HeaderWrapper />
