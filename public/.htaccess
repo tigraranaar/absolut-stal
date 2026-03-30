@@ -7,28 +7,17 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Редирект на HTTPS и основной домен
   RewriteCond %{HTTP_HOST} !^absolut-stal\.ru$ [NC]
-  RewriteCond %{HTTP_HOST} !^www\.absolut-stal\.ru$ [NC]
   RewriteRule ^(.*)$ https://absolut-stal.ru/$1 [R=301,L]
 
-  # Если запрашивается существующая директория без слэша на конце, добавляем слэш
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_URI} !/$
-  RewriteRule ^(.*)$ /$1/ [L,R=301]
-
-  # Любой запрос, заканчивающийся на слэш, принудительно перенаправляем (внутренне) на index.html
-  RewriteRule ^(.*)/$ $1/index.html [L]
-
-  # Для главной страницы (когда путь пустой)
-  RewriteRule ^$ index.html [L]
-
-  # Если запрашивается файл, которого нет, но есть такой же с .html на конце
+  # Если запрос к файлу без расширения, пробуем добавить .html (для файлов в корне, если есть)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # Обработка 404 ошибки
+  # Страница 404
   ErrorDocument 404 /404.html
 </IfModule>
 
