@@ -1,6 +1,9 @@
 # Next.js Static Export - URL Rewriting
 # Перенаправление для правильной работы роутинга
 
+# Устанавливаем индексный файл по умолчанию
+DirectoryIndex index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
@@ -8,29 +11,25 @@
   RewriteCond %{HTTP_HOST} !^www\.absolut-stal\.ru$ [NC]
   RewriteRule ^(.*)$ https://absolut-stal.ru/$1 [R=301,L]
 
-  # Если запрашивается /catalog/, перенаправляем на catalog.html
-  RewriteRule ^catalog/?$ /catalog.html [L]
+  # Если запрашивается существующая директория без слэша на конце, добавляем слэш
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [L,R=301]
 
-  # Если запрашивается категория каталога /catalog/category-name/ или /catalog/category-name
-  # перенаправляем на /catalog/category-name.html
+  # Любой запрос, заканчивающийся на слэш, принудительно перенаправляем (внутренне) на index.html
+  RewriteRule ^(.*)/$ $1/index.html [L]
+
+  # Для главной страницы (когда путь пустой)
+  RewriteRule ^$ index.html [L]
+
+  # Если запрашивается файл, которого нет, но есть такой же с .html на конце
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^catalog/([^/]+)/?$ /catalog/$1.html [L]
-
-  # Если запрашивается /about/, перенаправляем на about.html
-  RewriteRule ^about/?$ /about.html [L]
-
-  # Если запрашивается /contacts/, перенаправляем на contacts.html
-  RewriteRule ^contacts/?$ /contacts.html [L]
-
-  # Если запрашивается /delivery/, перенаправляем на delivery.html
-  RewriteRule ^delivery/?$ /delivery.html [L]
-
-  # Если запрашивается файл без расширения, добавляем .html
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.*)$ $1.html [L]
+
+  # Обработка 404 ошибки
+  ErrorDocument 404 /404.html
 </IfModule>
 
 # Кеширование статических файлов
