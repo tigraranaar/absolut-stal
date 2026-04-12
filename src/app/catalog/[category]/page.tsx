@@ -50,18 +50,18 @@ export async function generateMetadata({
     description,
     keywords,
     alternates: {
-      canonical: `https://absolut-stal.ru/catalog/${categorySlug}/`,
+      canonical: `https://казаньметалл.рф/catalog/${categorySlug}/`,
     },
     openGraph: {
       type: 'website',
       locale: 'ru_RU',
-      url: `https://absolut-stal.ru/catalog/${categorySlug}/`,
+      url: `https://казаньметалл.рф/catalog/${categorySlug}/`,
       siteName: 'Абсолют Сталь, Казань',
       title,
       description,
       images: [
         {
-          url: 'https://absolut-stal.ru/images/logo.png',
+          url: 'https://казаньметалл.рф/images/logo.png',
           width: 800,
           height: 600,
           alt: `Абсолют Сталь - ${category.name}`,
@@ -91,19 +91,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Главная',
-        item: 'https://absolut-stal.ru/',
+        item: 'https://казаньметалл.рф/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Каталог',
-        item: 'https://absolut-stal.ru/catalog/',
+        item: 'https://казаньметалл.рф/catalog/',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: category.name,
-        item: `https://absolut-stal.ru/catalog/${categorySlug}/`,
+        item: `https://казаньметалл.рф/catalog/${categorySlug}/`,
       },
     ],
   };

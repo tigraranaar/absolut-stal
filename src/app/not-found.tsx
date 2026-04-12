@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Запрашиваемая страница не найдена. Вернитесь на главную страницу или перейдите в каталог металлопроката.',
   alternates: {
-    canonical: 'https://absolut-stal.ru/404',
+    canonical: 'https://казаньметалл.рф/404',
   },
 };
 

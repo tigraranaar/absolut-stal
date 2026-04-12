@@ -7,19 +7,19 @@ export const metadata = {
   keywords:
     'контакты металлопрокат Казань, контакты Абсолют Сталь, металлопрокат Казань контакты, телефон металлопроката Казань, адрес металлобазa Казань, адрес склада металла Казань, купить металлопрокат в Казани',
   alternates: {
-    canonical: 'https://absolut-stal.ru/contacts',
+    canonical: 'https://казаньметалл.рф/contacts',
   },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://absolut-stal.ru/contacts',
+    url: 'https://казаньметалл.рф/contacts',
     siteName: 'Абсолют Сталь, Казань',
     title: 'Контакты - Металлопрокат Казань | Абсолют Сталь',
     description:
       'Контакты металлопроката Казань. Свяжитесь с нами для заказа арматуры, труб, профнастила, листа стального, уголка, швеллера, балки. Телефоны отдела продаж, адрес металлобазa Казань, реквизиты компании Абсолют Сталь.',
     images: [
       {
-        url: 'https://absolut-stal.ru/images/logo.png',
+        url: 'https://казаньметалл.рф/images/logo.png',
         width: 800,
         height: 600,
         alt: 'Абсолют Сталь - Контакты',

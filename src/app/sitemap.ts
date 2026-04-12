@@ -4,7 +4,7 @@ import { getCategoriesFromJson } from '@/lib/catalog-data';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://absolut-stal.ru';
+  const baseUrl = 'https://казаньметалл.рф';
   const categories = getCategoriesFromJson();
 
   const withTrailingSlash = (url: string) =>

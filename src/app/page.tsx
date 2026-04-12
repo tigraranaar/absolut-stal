@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   keywords:
     'металлопрокат Казань, купить металлопрокат в Казани, металлопрокат цена Казань, продажа металлопроката Казань, компания металлопрокат Казань, металлобазa Казань, арматура Казань, трубы Казань, профнастил Казань, лист стальной Казань, уголок Казань, швеллер Казань, балка Казань, круг стальной Казань, проволока Казань, сетка Казань, катанка Казань, полоса стальная Казань, квадрат Казань, шестигранник Казань, пруток Казань, доставка металлопроката Казань, металлопрокат оптом Казань, резка металла Казань',
   alternates: {
-    canonical: 'https://absolut-stal.ru/',
+    canonical: 'https://казаньметалл.рф/',
   },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://absolut-stal.ru/',
+    url: 'https://казаньметалл.рф/',
     siteName: 'Абсолют Сталь, Казань',
     title:
       'Металлопрокат Казань - Купить металлопрокат в Казани | Абсолют Сталь',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       'Металлопрокат Казань: купить металлопрокат в Казани оптом и в розницу. Металлобазa Казань с ценами на арматуру, трубы, профнастил, лист стальной, уголок, швеллер, балку. Доставка металлопроката по Казаньу и Татарстану. Прайс-лист 2024.',
     images: [
       {
-        url: 'https://absolut-stal.ru/images/logo.png',
+        url: 'https://казаньметалл.рф/images/logo.png',
         width: 800,
         height: 600,
         alt: 'Абсолют Сталь - Металлопрокат в Казани',
@@ -43,7 +43,7 @@ export default function Home() {
     name: 'Абсолют Сталь',
     description:
       'Компания по металлопрокату в городе Казани. Широкий ассортимент, качественные материалы, резка и доставка.',
-    url: 'https://absolut-stal.ru',
+    url: 'https://казаньметалл.рф',
     telephone: '+7-3412-56-68-22',
     email: 'abst18@bk.ru',
     address: {
@@ -77,16 +77,16 @@ export default function Home() {
         name: 'Республика Татарстан',
       },
     ],
-    logo: 'https://absolut-stal.ru/images/logo.png',
-    image: 'https://absolut-stal.ru/images/logo.png',
+    logo: 'https://казаньметалл.рф/images/logo.png',
+    image: 'https://казаньметалл.рф/images/logo.png',
   };
 
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ООО "Абсолют Сталь"',
-    url: 'https://absolut-stal.ru',
-    logo: 'https://absolut-stal.ru/images/logo.png',
+    url: 'https://казаньметалл.рф',
+    logo: 'https://казаньметалл.рф/images/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+7-3412-56-68-22',
