@@ -40,7 +40,7 @@ export default function ContactsPage() {
   const branches = [
     {
       name: 'ООО «Абсолют Сталь»',
-      address: '426035, УР, г. Ижевск, ул. Репина, дом 35, кор. 1',
+      address: 'г. Казань, ул. Кулагина, 3А',
       phone: '+7 3412 56-68-22',
       email: 'abst18@bk.ru',
       workHours: 'пн-пт, 8:00-18:00 (МСК)',
@@ -154,14 +154,14 @@ export default function ContactsPage() {
       </section> */}
 
       {/* Карта */}
-      {/* <section className="bg-white py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Мы на карте
             </h2>
             <p className="mx-auto max-w-2xl text-xl text-gray-600">
-              Наш офис в городе Ижевске
+              Наш офис в Казани
             </p>
           </div>
 
@@ -278,7 +278,7 @@ export default function ContactsPage() {
               </h3>
               <div className="overflow-hidden rounded-lg">
                 <iframe
-                  src="https://yandex.ru/map-widget/v1/-/CBqZEVtL-A"
+                  src="https://yandex.com/map-widget/v1/?ll=49.138034%2C55.742514&mode=whatshere&utm_source=share&whatshere%5Bpoint%5D=49.138035%2C55.742514&whatshere%5Bzoom%5D=17&z=17"
                   width="600"
                   height="400"
                   className="h-[400px] w-full"
@@ -287,7 +287,30 @@ export default function ContactsPage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
+
+// <div style="position:relative;overflow:hidden;">
+//   <a
+//     href="https://yandex.com/maps/43/kazan/?utm_medium=mapframe&utm_source=maps"
+//     style="color:#eee;font-size:12px;position:absolute;top:0px;"
+//   >
+//     Казань
+//   </a>
+//   <a
+//     href="https://yandex.com/maps/43/kazan/house/ulitsa_vladimira_kulagina_3a/YEAYdwRoSUYCQFtvfXt1c3liYA==/?ll=49.138034%2C55.742514&utm_medium=mapframe&utm_source=maps&z=17"
+//     style="color:#eee;font-size:12px;position:absolute;top:14px;"
+//   >
+//     Улица Владимира Кулагина, 3А на карте Казани — Яндекс Карты
+//   </a>
+//   <iframe
+//     src="https://yandex.com/map-widget/v1/?ll=49.138034%2C55.742514&mode=whatshere&utm_source=share&whatshere%5Bpoint%5D=49.138035%2C55.742514&whatshere%5Bzoom%5D=17&z=17"
+//     width="560"
+//     height="400"
+//     frameborder="1"
+//     allowfullscreen="true"
+//     style="position:relative;"
+//   ></iframe>
+// </div>;

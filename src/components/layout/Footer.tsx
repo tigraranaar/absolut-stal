@@ -49,18 +49,18 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Контакты */}
-          {/* <div className="text-center md:text-left">
+          <div className="text-center md:text-left">
             <h3 className="mb-4 text-lg font-semibold text-yellow-500">
               Контакты
             </h3>
             <ul className="space-y-2 text-gray-300">
-              <li>г. Ижевск</li>
-              <li>ул. Репина, дом 35, кор. 1</li>
+              <li>г. Казань</li>
+              <li>ул. Кулагина, 3А</li>
               <li>Пн-Пт: 9:00-18:00 (МСК)</li>
               <li>Сб: 9:00-14:00 (МСК)</li>
               <li>Вс: Выходной</li>
             </ul>
-          </div> */}
+          </div>
 
           {/* О компании */}
           <div className="col-span-1 text-center md:col-span-2 md:text-left">
